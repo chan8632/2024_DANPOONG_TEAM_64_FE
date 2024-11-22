@@ -1,55 +1,23 @@
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import TitleImage from "./assets/로그인/주식 한입.svg";
-import KakakoImage from "./assets/로그인/카카오톡.svg";
+import HomeScreen from "./HomeScreen";
+import LoginScreen from "./LoginScreen";
+import { createStackNavigator } from "@react-navigation/stack";
+
+const Stack = createStackNavigator();
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <TitleImage width={200} height={125} />
-      {/* 설명 */}
-      <Text style={styles.subtitle}>카카오로 로그인/회원가입 하기</Text>
-
-      {/* 카카오톡 버튼 */}
-      <TouchableOpacity style={styles.button}>
-        <KakakoImage width={50} height={50} />
-      </TouchableOpacity>
-      <Text style={styles.buttonText}>카카오톡</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff", // 배경색 흰색
-  },
-  title: {
-    fontSize: 40,
-    fontWeight: "bold",
-    color: "#0056FF", // 파란색
-    marginBottom: 20,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: "#333", // 어두운 회색
-    margin: 30,
-  },
-  button: {
-    flexDirection: "row",
-    alignItems: "center",
-
-    padding: 10,
-    borderRadius: 8,
-  },
-  buttonImage: {
-    width: 24,
-    height: 24,
-    marginRight: 8,
-  },
-  buttonText: {
-    fontSize: 16,
-    color: "#000", // 검정색
-  },
-});
