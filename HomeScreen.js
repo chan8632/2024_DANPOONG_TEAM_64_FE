@@ -15,7 +15,7 @@ import AmazonLogo from "./assets/Logo=Amazon.svg";
 import MetaLogo from "./assets/Logo=Meta.svg";
 import MainLogo from "./assets/홈스크린/주식 한입 작은버전.svg";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [selectedStock, setSelectedStock] = useState(null);
 
   const stocks = [
@@ -31,9 +31,6 @@ const HomeScreen = () => {
     setSelectedStock(id);
     alert(`You selected ${id}!`);
   };
-  const handlePress = () => {
-    alert("결과 보기 클릭!");
-  };
 
   return (
     <View style={styles.container}>
@@ -42,9 +39,14 @@ const HomeScreen = () => {
       <View style={styles.cardContainer}>
         {/* 결과보기 카드 */}
         <View style={styles.cardWrapper}>
-          <View style={styles.card}>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => {
+              navigation.navigate("Result");
+            }}
+          >
             <Text style={styles.cardText}>7 / 10</Text>
-          </View>
+          </TouchableOpacity>
           <Text style={styles.cardSubtext}>결과 보기</Text>
         </View>
         <View style={styles.cardWrapper}>
