@@ -7,17 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import GoogleLogo from "./assets/Logo=Google.svg";
-import AppleLogo from "./assets/Logo=Apple.svg";
-import NvidiaLogo from "./assets/Logo=Nvidia.svg";
-import MsLogo from "./assets/Logo=Microsoft.svg";
 import AmazonLogo from "./assets/Logo=Amazon.svg";
+import AppleLogo from "./assets/Logo=Apple.svg";
+import GoogleLogo from "./assets/Logo=Google.svg";
 import MetaLogo from "./assets/Logo=Meta.svg";
+import MsLogo from "./assets/Logo=Microsoft.svg";
+import NvidiaLogo from "./assets/Logo=Nvidia.svg";
 import MainLogo from "./assets/홈스크린/주식 한입 작은버전.svg";
 
 const HomeScreen = ({ navigation }) => {
-  const [selectedStock, setSelectedStock] = useState(null);
-
   const stocks = [
     { id: "1", name: "애플", price: "$228.02", logo: AppleLogo },
     { id: "2", name: "엔비디아", price: "$228.02", logo: NvidiaLogo },
@@ -26,11 +24,6 @@ const HomeScreen = ({ navigation }) => {
     { id: "5", name: "아마존", price: "$228.02", logo: AmazonLogo },
     { id: "6", name: "메타", price: "$228.02", logo: MetaLogo },
   ];
-
-  const handleStockSelect = (id) => {
-    setSelectedStock(id);
-    alert(`You selected ${id}!`);
-  };
 
   return (
     <View style={styles.container}>
@@ -42,7 +35,7 @@ const HomeScreen = ({ navigation }) => {
           <TouchableOpacity
             style={styles.card}
             onPress={() => {
-              navigation.navigate("Result");
+              navigation.navigate("결과보기");
             }}
           >
             <Text style={styles.cardText}>7 / 10</Text>
@@ -64,7 +57,9 @@ const HomeScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.stockButton}
-            onPress={() => handleStockSelect(item.name)}
+            onPress={() =>
+              navigation.navigate("오늘은 올라갈까 내려갈까?", { stock: item })
+            }
           >
             <item.logo width={50} height={50} />
             <Text style={styles.stockName}>{item.name}</Text>
