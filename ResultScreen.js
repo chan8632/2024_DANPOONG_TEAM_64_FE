@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+
 import AppleOn from "./assets/Stamp/appleOn.svg";
 import GoogleOn from "./assets/Stamp/googleOn.svg";
 import NvidiaOn from "./assets/Stamp/nvidiaOn.svg";
@@ -23,12 +25,21 @@ const ResultScreen = () => {
     "appleOff",
     "amazonOff",
     "null",
-    "null",
+
+    "nvidiaOff",
     "metaOn",
     "appleOff",
     "amazonOff",
-    "null",
-    "null",
+    "microsoftOff",
+    "metaOff",
+  ];
+
+  // 데이터를 행 단위로 분리 (3개, 4개, 3개)
+  const rows = [
+    datas.slice(0, 3), // 첫 번째 행
+    datas.slice(3, 7), // 두 번째 행
+    datas.slice(7, 10), // 세 번째 행
+
   ];
 
   // 상태와 SVG를 매핑
@@ -47,12 +58,10 @@ const ResultScreen = () => {
     metaOff: MetaOff,
     null: Nullsvg,
   };
+
+
   return (
     <View style={styles.container}>
-      {/* 뒤로가기 버튼 */}
-      <TouchableOpacity style={styles.backButton}>
-        <Text style={styles.backText}>{"<"}</Text>
-      </TouchableOpacity>
 
       {/* 결과 텍스트 */}
       <Text style={styles.titleText}>지니 님은</Text>
@@ -60,29 +69,35 @@ const ResultScreen = () => {
         총 <Text style={styles.highlightNumber}>7번</Text> 맞히셨네요!
       </Text>
 
-      {/* 로고 목록 */}
+
+      {/* 로고 그리드 */}
       <View style={styles.logoContainer}>
-        {datas.map((key, index) => {
-          const LogoComponent = svgMapping[key]; // 데이터 값에 따라 SVG 매핑
-          return (
-            <View
-              key={index}
-              style={{
-                margin: 10,
-                width: { logoSize } + 0,
-                height: { logoSize } + 0,
-                borderRadius: 35,
-                backgroundColor: "#ffffff",
-                justifyContent: "center",
-                alignItems: "center",
-                borderWidth: 1,
-                borderColor: "#ddd",
-              }}
-            >
-              <LogoComponent width={logoSize} height={logoSize} />
-            </View>
-          );
-        })}
+        {rows.map((row, rowIndex) => (
+          <View key={rowIndex} style={styles.row}>
+            {row.map((key, index) => {
+              const LogoComponent = svgMapping[key];
+              return (
+                <View
+                  key={index}
+                  style={{
+                    marginHorizontal: 10,
+                    width: logoSize,
+                    height: logoSize,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: 35,
+                    borderWidth: 1,
+                    borderColor: "#ddd",
+                    backgroundColor: "#ffffff",
+                  }}
+                >
+                  <LogoComponent width={logoSize} height={logoSize} />
+                </View>
+              );
+            })}
+          </View>
+        ))}
+
       </View>
     </View>
   );
@@ -94,15 +109,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#ffffff",
   },
-  backButton: {
-    position: "absolute",
-    top: 20,
-    left: 20,
-  },
-  backText: {
-    fontSize: 18,
-    fontWeight: "bold",
-  },
+
   titleText: {
     marginTop: 60,
     fontSize: 20,
@@ -118,30 +125,26 @@ const styles = StyleSheet.create({
     color: "blue",
     fontWeight: "bold",
   },
-  dropdown: {
-    alignSelf: "center",
-    marginTop: 20,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 5,
-  },
+
   logoContainer: {
     marginTop: 30,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    width: "100%",
     padding: 10,
     backgroundColor: "#f9f9f9",
     borderRadius: 10,
-    elevation: 2, // 안드로이드 그림자
-    shadowColor: "#000", // iOS 그림자
+    shadowColor: "#000",
+
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
   },
+
+  row: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 15,
+  },
+  logoWrapper: {},
+
 });
 
 export default ResultScreen;

@@ -12,12 +12,23 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Login"
-        screenOptions={{
-          headerShown: false,
-        }}
+        screenOptions={{ headerTitleAlign: "center" }}
       >
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+
         <Stack.Screen name="Result" component={ResultScreen} />
       </Stack.Navigator>
     </NavigationContainer>
