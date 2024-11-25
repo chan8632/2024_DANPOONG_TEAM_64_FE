@@ -1,0 +1,126 @@
+{
+  "StockTicker": "AAPL",
+  "dailyResults": [
+    {
+      "averagePrice": 233.57,
+      "closePrice": 233.4,
+      "date": "2024-10-28",
+      "openPrice": 233.32
+    },
+    {
+      "averagePrice": 233.59,
+      "closePrice": 233.67,
+      "date": "2024-10-29",
+      "openPrice": 233.1
+    },
+    {
+      "averagePrice": 230.93,
+      "closePrice": 230.1,
+      "date": "2024-10-30",
+      "openPrice": 232.61
+    },
+    {
+      "averagePrice": 226.7,
+      "closePrice": 225.91,
+      "date": "2024-10-31",
+      "openPrice": 229.34
+    },
+    {
+      "averagePrice": 222.81,
+      "closePrice": 222.91,
+      "date": "2024-11-01",
+      "openPrice": 220.97
+    },
+    {
+      "averagePrice": 221.75,
+      "closePrice": 222.01,
+      "date": "2024-11-04",
+      "openPrice": 220.99
+    },
+    {
+      "averagePrice": 223.09,
+      "closePrice": 223.45,
+      "date": "2024-11-05",
+      "openPrice": 221.8
+    },
+    {
+      "averagePrice": 223.86,
+      "closePrice": 222.72,
+      "date": "2024-11-06",
+      "openPrice": 222.61
+    },
+    {
+      "averagePrice": 226.76,
+      "closePrice": 227.48,
+      "date": "2024-11-07",
+      "openPrice": 224.63
+    },
+    {
+      "averagePrice": 227.22,
+      "closePrice": 226.96,
+      "date": "2024-11-08",
+      "openPrice": 227.17
+    },
+    {
+      "averagePrice": 223.41,
+      "closePrice": 224.23,
+      "date": "2024-11-11",
+      "openPrice": 225
+    },
+    {
+      "averagePrice": 224.38,
+      "closePrice": 224.23,
+      "date": "2024-11-12",
+      "openPrice": 224.55
+    },
+    {
+      "averagePrice": 224.9,
+      "closePrice": 225.12,
+      "date": "2024-11-13",
+      "openPrice": 224.01
+    },
+    {
+      "averagePrice": 227.39,
+      "closePrice": 228.22,
+      "date": "2024-11-14",
+      "openPrice": 225.02
+    },
+    {
+      "averagePrice": 225.09,
+      "closePrice": 225,
+      "date": "2024-11-15",
+      "openPrice": 226.4
+    },
+    {
+      "averagePrice": 228.09,
+      "closePrice": 228.02,
+      "date": "2024-11-18",
+      "openPrice": 225.25
+    },
+    {
+      "averagePrice": 228.69,
+      "closePrice": 228.28,
+      "date": "2024-11-19",
+      "openPrice": 226.98
+    },
+    {
+      "averagePrice": 228.04,
+      "closePrice": 229,
+      "date": "2024-11-20",
+      "openPrice": 228.06
+    },
+    {
+      "averagePrice": 228.46,
+      "closePrice": 228.52,
+      "date": "2024-11-21",
+      "openPrice": 228.88
+    },
+    {
+      "averagePrice": 229.67,
+      "closePrice": 229.87,
+      "date": "2024-11-22",
+      "openPrice": 228.06
+    }
+  ],
+  "stockName": "Apple"
+}

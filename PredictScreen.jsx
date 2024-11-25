@@ -1,22 +1,39 @@
-import React from "react";
-import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Dimensions } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import axios from "axios";
 import { API_URL } from "@env";
+
 const PredictScreen = ({ route }) => {
+  const [closePrices, setClosePrices] = useState([]);
+  const [date, setDate] = useState([]);
+  const { stock } = route.params;
+  const LogoComponent = stock.logo || (() => <Text>Default Logo</Text>);
+
   const getStock = async () => {
     try {
       const response = await axios.get(`${API_URL}/stocks/AAPL`);
-      console.log(response.data);
+      const datas = response.data;
+
+      setClosePrices(
+        datas.dailyResults.map((result) =>
+          parseFloat(result.closePrice).toFixed(1)
+        )
+      );
+      setDate(
+        datas.dailyResults.map((result) => {
+          return parseFloat(result.date.split("-")[2]);
+        })
+      );
     } catch (error) {
-      console.error(error);
-      throw error;
+      console.error("Error fetching stock data:", error);
     }
   };
-  const { stock } = route.params; // HomeScreen에서 전달받은 데이터
 
-  const LogoComponent = stock.logo; // 동적으로 렌더링할 SVG 컴포넌트
+  useEffect(() => {
+    getStock();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -24,54 +41,41 @@ const PredictScreen = ({ route }) => {
         <LogoComponent width={100} height={100} style={styles.logo} />
         <Text style={styles.stockName}>{stock.name}</Text>
       </View>
-      <TouchableOpacity onPress={() => getStock()}>
-        <Text>통신해보기</Text>
-      </TouchableOpacity>
       <Text style={styles.stockPrice}>{stock.price}</Text>
-
-      {/* Chart */}
       <View>
-        <LineChart
-          data={{
-            labels: ["10:30", "12:00", "14:30"],
-            datasets: [
-              {
-                data: [340, 330, 328],
+        {closePrices.length > 0 && date.length > 0 ? (
+          <LineChart
+            data={{
+              labels: date,
+              datasets: [
+                {
+                  data: closePrices,
+                },
+              ],
+            }}
+            width={Dimensions.get("window").width - 40}
+            height={200}
+            yAxisSuffix="$"
+            chartConfig={{
+              backgroundColor: "#ffffff",
+              backgroundGradientFrom: "#ffffff",
+              backgroundGradientTo: "#ffffff",
+              decimalPlaces: 2,
+              color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              style: {
+                borderRadius: 16,
               },
-            ],
-          }}
-          width={Dimensions.get("window").width - 40}
-          height={200}
-          yAxisSuffix="$"
-          chartConfig={{
-            backgroundColor: "#ffffff",
-            backgroundGradientFrom: "#ffffff",
-            backgroundGradientTo: "#ffffff",
-            decimalPlaces: 2,
-            color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
-            labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-            style: {
-              borderRadius: 16,
-            },
-          }}
-          style={styles.chart}
-        />
+            }}
+            style={styles.chart}
+          />
+        ) : (
+          <Text>Loading chart data...</Text>
+        )}
       </View>
-
-      {/* News Button */}
       <TouchableOpacity style={styles.newsButton}>
         <Text style={styles.newsButtonText}>뉴스 보러가기</Text>
       </TouchableOpacity>
-
-      {/* Action Buttons */}
-      <View style={styles.actionButtons}>
-        <TouchableOpacity style={[styles.button, styles.downButton]}>
-          <Text style={styles.buttonText}>내려간다</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.upButton]}>
-          <Text style={styles.buttonText}>올라간다</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 };
