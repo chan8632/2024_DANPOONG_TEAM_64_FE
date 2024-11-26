@@ -60,7 +60,9 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <MainLogo width={100} height={40} />
       <Text style={styles.greeting}>지니님,{"\n"}안녕하세요!</Text>
-
+      <TouchableOpacity>
+        <Text>랭킹존</Text>
+      </TouchableOpacity>
       <View style={styles.cardContainer}>
         {/* 결과보기 카드 */}
         <View style={styles.cardWrapper}>
