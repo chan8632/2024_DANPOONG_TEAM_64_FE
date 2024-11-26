@@ -10,10 +10,11 @@ const PredictScreen = ({ route }) => {
   const [date, setDate] = useState([]);
   const { stock } = route.params;
   const LogoComponent = stock.logo || (() => <Text>Default Logo</Text>);
-
+  console.log(stock);
+  console.log(route);
   const getStock = async () => {
     try {
-      const response = await axios.get(`${API_URL}/stocks/AAPL`);
+      const response = await axios.get(`${API_URL}/stocks/${stock.ticker}`);
       const datas = response.data;
 
       setClosePrices(
@@ -30,6 +31,7 @@ const PredictScreen = ({ route }) => {
       console.error("Error fetching stock data:", error);
     }
   };
+  console.log(closePrices[0]);
 
   useEffect(() => {
     getStock();
@@ -41,7 +43,7 @@ const PredictScreen = ({ route }) => {
         <LogoComponent width={100} height={100} style={styles.logo} />
         <Text style={styles.stockName}>{stock.name}</Text>
       </View>
-      <Text style={styles.stockPrice}>{stock.price}</Text>
+      <Text style={styles.stockPrice}>${closePrices.at(-1)}</Text>
       <View>
         {closePrices.length > 0 && date.length > 0 ? (
           <LineChart
