@@ -1,0 +1,186 @@
+{
+  "StockTicker": "NVDA",
+  "stockName": "NVIDIA",
+  "dailyResults": [
+    {
+      "date": "2024-10-01",
+      "openPrice": 465.1,
+      "averagePrice": 466.8,
+      "closePrice": 467.2
+    },
+    {
+      "date": "2024-10-02",
+      "openPrice": 468.3,
+      "averagePrice": 469.4,
+      "closePrice": 469.1
+    },
+    {
+      "date": "2024-10-03",
+      "openPrice": 467.5,
+      "averagePrice": 468.9,
+      "closePrice": 468.3
+    },
+    {
+      "date": "2024-10-04",
+      "openPrice": 469.0,
+      "averagePrice": 470.5,
+      "closePrice": 470.1
+    },
+    {
+      "date": "2024-10-05",
+      "openPrice": 470.8,
+      "averagePrice": 471.9,
+      "closePrice": 471.3
+    },
+    {
+      "date": "2024-10-06",
+      "openPrice": 472.2,
+      "averagePrice": 473.4,
+      "closePrice": 472.9
+    },
+    {
+      "date": "2024-10-07",
+      "openPrice": 474.1,
+      "averagePrice": 475.0,
+      "closePrice": 474.7
+    },
+    {
+      "date": "2024-10-08",
+      "openPrice": 475.5,
+      "averagePrice": 476.8,
+      "closePrice": 476.4
+    },
+    {
+      "date": "2024-10-09",
+      "openPrice": 477.0,
+      "averagePrice": 478.5,
+      "closePrice": 478.1
+    },
+    {
+      "date": "2024-10-10",
+      "openPrice": 479.3,
+      "averagePrice": 480.2,
+      "closePrice": 479.9
+    },
+    {
+      "date": "2024-10-11",
+      "openPrice": 480.5,
+      "averagePrice": 481.8,
+      "closePrice": 481.3
+    },
+    {
+      "date": "2024-10-12",
+      "openPrice": 482.0,
+      "averagePrice": 483.2,
+      "closePrice": 482.7
+    },
+    {
+      "date": "2024-10-13",
+      "openPrice": 484.1,
+      "averagePrice": 485.0,
+      "closePrice": 484.8
+    },
+    {
+      "date": "2024-10-14",
+      "openPrice": 486.0,
+      "averagePrice": 486.7,
+      "closePrice": 486.4
+    },
+    {
+      "date": "2024-10-15",
+      "openPrice": 487.3,
+      "averagePrice": 488.5,
+      "closePrice": 488.1
+    },
+    {
+      "date": "2024-10-16",
+      "openPrice": 489.2,
+      "averagePrice": 490.0,
+      "closePrice": 489.7
+    },
+    {
+      "date": "2024-10-17",
+      "openPrice": 491.5,
+      "averagePrice": 492.3,
+      "closePrice": 492.0
+    },
+    {
+      "date": "2024-10-18",
+      "openPrice": 493.0,
+      "averagePrice": 494.5,
+      "closePrice": 494.1
+    },
+    {
+      "date": "2024-10-19",
+      "openPrice": 495.3,
+      "averagePrice": 496.8,
+      "closePrice": 496.4
+    },
+    {
+      "date": "2024-10-20",
+      "openPrice": 497.0,
+      "averagePrice": 498.2,
+      "closePrice": 498.1
+    },
+    {
+      "date": "2024-10-21",
+      "openPrice": 499.5,
+      "averagePrice": 500.3,
+      "closePrice": 499.8
+    },
+    {
+      "date": "2024-10-22",
+      "openPrice": 501.0,
+      "averagePrice": 502.4,
+      "closePrice": 502.1
+    },
+    {
+      "date": "2024-10-23",
+      "openPrice": 503.3,
+      "averagePrice": 504.0,
+      "closePrice": 503.8
+    },
+    {
+      "date": "2024-10-24",
+      "openPrice": 505.0,
+      "averagePrice": 506.5,
+      "closePrice": 506.2
+    },
+    {
+      "date": "2024-10-25",
+      "openPrice": 507.5,
+      "averagePrice": 508.8,
+      "closePrice": 508.4
+    },
+    {
+      "date": "2024-10-26",
+      "openPrice": 509.0,
+      "averagePrice": 510.4,
+      "closePrice": 510.1
+    },
+    {
+      "date": "2024-10-27",
+      "openPrice": 511.3,
+      "averagePrice": 512.0,
+      "closePrice": 511.8
+    },
+    {
+      "date": "2024-10-28",
+      "openPrice": 513.0,
+      "averagePrice": 514.2,
+      "closePrice": 514.0
+    },
+    {
+      "date": "2024-10-29",
+      "openPrice": 515.3,
+      "averagePrice": 516.5,
+      "closePrice": 516.1
+    },
+    {
+      "date": "2024-10-30",
+      "openPrice": 517.0,
+      "averagePrice": 518.0,
+      "closePrice": 517.9
+    }
+  ]
+}

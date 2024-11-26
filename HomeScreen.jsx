@@ -18,19 +18,51 @@ import MainLogo from "./assets/홈스크린/주식 한입 작은버전.svg";
 
 const HomeScreen = ({ navigation }) => {
   const stocks = [
-    { id: "1", name: "애플", price: "$228.02", logo: AppleLogo },
-    { id: "2", name: "엔비디아", price: "$228.02", logo: NvidiaLogo },
-    { id: "3", name: "마이크로소프트", price: "$228.02", logo: MsLogo },
-    { id: "4", name: "구글", price: "$228.02", logo: GoogleLogo },
-    { id: "5", name: "아마존", price: "$228.02", logo: AmazonLogo },
-    { id: "6", name: "메타", price: "$228.02", logo: MetaLogo },
+    {
+      id: "1",
+      name: "애플",
+      price: "$228.02",
+      logo: AppleLogo,
+      ticker: "AAPL",
+    },
+    {
+      id: "2",
+      name: "엔비디아",
+      price: "$228.02",
+      logo: NvidiaLogo,
+      ticker: "NVDA",
+    },
+    {
+      id: "3",
+      name: "마이크로소프트",
+      price: "$228.02",
+      logo: MsLogo,
+      ticker: "MSFT",
+    },
+    {
+      id: "4",
+      name: "구글",
+      price: "$228.02",
+      logo: GoogleLogo,
+      ticker: "GOOGL",
+    },
+    {
+      id: "5",
+      name: "아마존",
+      price: "$228.02",
+      logo: AmazonLogo,
+      ticker: "AMZN",
+    },
+    { id: "6", name: "메타", price: "$228.02", logo: MetaLogo, ticker: "META" },
   ];
 
   return (
     <View style={styles.container}>
       <MainLogo width={100} height={40} />
       <Text style={styles.greeting}>지니님,{"\n"}안녕하세요!</Text>
-
+      <TouchableOpacity>
+        <Text>랭킹존</Text>
+      </TouchableOpacity>
       <View style={styles.cardContainer}>
         {/* 결과보기 카드 */}
         <View style={styles.cardWrapper}>
