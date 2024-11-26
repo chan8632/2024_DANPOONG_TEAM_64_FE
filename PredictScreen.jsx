@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
 import { Dimensions } from "react-native";
 import { LineChart } from "react-native-chart-kit";
-import axios from "axios";
-import { API_URL } from "@env";
+import Amazon from "./stock/Amazon.json";
+import Apple from "./stock/Apple.json";
+import Google from "./stock/Google.json";
+import Meta from "./stock/Meta.json";
+import Microsoft from "./stock/Microsoft.json";
+import Nvidia from "./stock/Nvidia.json";
+import Up from "./assets/예상하기/올라간다.svg";
+import Down from "./assets/예상하기/내려간다.svg";
 
 const PredictScreen = ({ route }) => {
   const [closePrices, setClosePrices] = useState([]);
@@ -11,28 +23,35 @@ const PredictScreen = ({ route }) => {
   const { stock } = route.params;
   const LogoComponent = stock.logo || (() => <Text>Default Logo</Text>);
 
-  const getStock = async () => {
-    try {
-      const response = await axios.get(`${API_URL}/stocks/${stock.ticker}`);
-      const datas = response.data;
+  // JSON 데이터를 객체로 정리
+  const stockData = {
+    AMZN: Amazon,
+    AAPL: Apple,
+    GOOGL: Google,
+    META: Meta,
+    MSFT: Microsoft,
+    NVDA: Nvidia,
+  };
 
-      setClosePrices(
-        datas.dailyResults.map((result) =>
-          parseFloat(result.closePrice).toFixed(1)
-        )
-      );
-      setDate(
-        datas.dailyResults.map((result) => {
-          return parseFloat(result.date.split("-")[2]);
-        })
-      );
-    } catch (error) {
-      console.error("Error fetching stock data:", error);
-    }
+  const getLocalStockData = () => {
+    const selectedStock = stockData[stock.ticker]; // ticker를 키로 데이터 가져옴
+    if (!selectedStock) return;
+
+    setClosePrices(
+      selectedStock.dailyResults.map((result) =>
+        parseFloat(result.closePrice).toFixed(1)
+      )
+    );
+
+    setDate(
+      selectedStock.dailyResults.map((result) =>
+        parseFloat(result.date.split("-")[2])
+      )
+    );
   };
 
   useEffect(() => {
-    getStock();
+    getLocalStockData();
   }, []);
 
   const reducedLabels = date.map((value, index) => {
@@ -83,6 +102,16 @@ const PredictScreen = ({ route }) => {
       <TouchableOpacity style={styles.newsButton}>
         <Text style={styles.newsButtonText}>뉴스 보러가기</Text>
       </TouchableOpacity>
+      <View style={styles.actionButtons}>
+        <TouchableOpacity style={styles.button}>
+          <Up />
+          <Text style={styles.buttonText}>올라간다</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Down />
+          <Text style={styles.buttonText}>내려간다</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -138,20 +167,29 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   button: {
-    width: "48%",
+    width: "48%", // 버튼 너비를 동일하게 설정
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 20,
     alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFFFFF",
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 8.5,
+      },
+      android: {
+        elevation: 8,
+      },
+    }),
   },
-  downButton: {
-    backgroundColor: "#e0e0e0",
-  },
-  upButton: {
-    backgroundColor: "#ffdddd",
-  },
+
   buttonText: {
     fontSize: 16,
-    fontWeight: "bold",
+    marginTop: 5,
+    color: "black", // 텍스트 색
   },
 });
 

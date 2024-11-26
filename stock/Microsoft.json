@@ -1,0 +1,186 @@
+{
+  "StockTicker": "MSFT",
+  "stockName": "Microsoft",
+  "dailyResults": [
+    {
+      "date": "2024-10-01",
+      "openPrice": 330.1,
+      "averagePrice": 331.5,
+      "closePrice": 331.2
+    },
+    {
+      "date": "2024-10-02",
+      "openPrice": 331.3,
+      "averagePrice": 332.7,
+      "closePrice": 332.5
+    },
+    {
+      "date": "2024-10-03",
+      "openPrice": 332.6,
+      "averagePrice": 333.9,
+      "closePrice": 333.7
+    },
+    {
+      "date": "2024-10-04",
+      "openPrice": 334.1,
+      "averagePrice": 335.5,
+      "closePrice": 335.2
+    },
+    {
+      "date": "2024-10-05",
+      "openPrice": 335.3,
+      "averagePrice": 336.8,
+      "closePrice": 336.4
+    },
+    {
+      "date": "2024-10-06",
+      "openPrice": 336.9,
+      "averagePrice": 338.2,
+      "closePrice": 337.8
+    },
+    {
+      "date": "2024-10-07",
+      "openPrice": 338.5,
+      "averagePrice": 339.6,
+      "closePrice": 339.3
+    },
+    {
+      "date": "2024-10-08",
+      "openPrice": 339.8,
+      "averagePrice": 341.0,
+      "closePrice": 340.7
+    },
+    {
+      "date": "2024-10-09",
+      "openPrice": 341.1,
+      "averagePrice": 342.5,
+      "closePrice": 342.2
+    },
+    {
+      "date": "2024-10-10",
+      "openPrice": 342.8,
+      "averagePrice": 344.0,
+      "closePrice": 343.7
+    },
+    {
+      "date": "2024-10-11",
+      "openPrice": 344.3,
+      "averagePrice": 345.6,
+      "closePrice": 345.4
+    },
+    {
+      "date": "2024-10-12",
+      "openPrice": 345.5,
+      "averagePrice": 346.8,
+      "closePrice": 346.5
+    },
+    {
+      "date": "2024-10-13",
+      "openPrice": 347.0,
+      "averagePrice": 348.2,
+      "closePrice": 348.0
+    },
+    {
+      "date": "2024-10-14",
+      "openPrice": 348.5,
+      "averagePrice": 349.6,
+      "closePrice": 349.3
+    },
+    {
+      "date": "2024-10-15",
+      "openPrice": 350.0,
+      "averagePrice": 351.2,
+      "closePrice": 351.0
+    },
+    {
+      "date": "2024-10-16",
+      "openPrice": 351.5,
+      "averagePrice": 352.7,
+      "closePrice": 352.4
+    },
+    {
+      "date": "2024-10-17",
+      "openPrice": 352.9,
+      "averagePrice": 354.0,
+      "closePrice": 353.7
+    },
+    {
+      "date": "2024-10-18",
+      "openPrice": 354.5,
+      "averagePrice": 355.6,
+      "closePrice": 355.3
+    },
+    {
+      "date": "2024-10-19",
+      "openPrice": 355.7,
+      "averagePrice": 357.0,
+      "closePrice": 356.8
+    },
+    {
+      "date": "2024-10-20",
+      "openPrice": 357.5,
+      "averagePrice": 358.7,
+      "closePrice": 358.4
+    },
+    {
+      "date": "2024-10-21",
+      "openPrice": 358.8,
+      "averagePrice": 360.0,
+      "closePrice": 359.7
+    },
+    {
+      "date": "2024-10-22",
+      "openPrice": 360.2,
+      "averagePrice": 361.5,
+      "closePrice": 361.2
+    },
+    {
+      "date": "2024-10-23",
+      "openPrice": 361.8,
+      "averagePrice": 363.0,
+      "closePrice": 362.8
+    },
+    {
+      "date": "2024-10-24",
+      "openPrice": 363.5,
+      "averagePrice": 364.7,
+      "closePrice": 364.5
+    },
+    {
+      "date": "2024-10-25",
+      "openPrice": 365.0,
+      "averagePrice": 366.2,
+      "closePrice": 366.0
+    },
+    {
+      "date": "2024-10-26",
+      "openPrice": 366.5,
+      "averagePrice": 367.8,
+      "closePrice": 367.6
+    },
+    {
+      "date": "2024-10-27",
+      "openPrice": 368.0,
+      "averagePrice": 369.5,
+      "closePrice": 369.2
+    },
+    {
+      "date": "2024-10-28",
+      "openPrice": 370.0,
+      "averagePrice": 371.2,
+      "closePrice": 371.0
+    },
+    {
+      "date": "2024-10-29",
+      "openPrice": 371.5,
+      "averagePrice": 372.7,
+      "closePrice": 372.5
+    },
+    {
+      "date": "2024-10-30",
+      "openPrice": 373.0,
+      "averagePrice": 374.2,
+      "closePrice": 374.0
+    }
+  ]
+}
