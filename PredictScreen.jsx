@@ -10,8 +10,7 @@ const PredictScreen = ({ route }) => {
   const [date, setDate] = useState([]);
   const { stock } = route.params;
   const LogoComponent = stock.logo || (() => <Text>Default Logo</Text>);
-  console.log(stock);
-  console.log(route);
+
   const getStock = async () => {
     try {
       const response = await axios.get(`${API_URL}/stocks/${stock.ticker}`);
@@ -31,11 +30,17 @@ const PredictScreen = ({ route }) => {
       console.error("Error fetching stock data:", error);
     }
   };
-  console.log(closePrices[0]);
 
   useEffect(() => {
     getStock();
   }, []);
+
+  const reducedLabels = date.map((value, index) => {
+    if (index % Math.ceil(date.length / 5) === 0) {
+      return value; // 표시할 레이블
+    }
+    return ""; // 빈 문자열로 출력되지 않도록
+  });
 
   return (
     <View style={styles.container}>
@@ -48,7 +53,7 @@ const PredictScreen = ({ route }) => {
         {closePrices.length > 0 && date.length > 0 ? (
           <LineChart
             data={{
-              labels: date,
+              labels: reducedLabels,
               datasets: [
                 {
                   data: closePrices,
