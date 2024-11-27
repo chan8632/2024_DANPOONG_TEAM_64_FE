@@ -32,10 +32,14 @@ const renderHeader = () => (
 );
 
 export default function RankingScreen() {
-  const [dataToShow, setDataToShow] = useState(7); // 초기 데이터는 7개만 표시
+  const INITIAL_DATA_COUNT = 7; // 초기 표시 데이터 개수
+  const [dataToShow, setDataToShow] = useState(INITIAL_DATA_COUNT); // 초기 데이터는 7개만 표시
 
   const handleShowAll = () => {
     setDataToShow(RANKING_DATA.length); // 데이터 전체를 보여줌
+  };
+  const handleCollapse = () => {
+    setDataToShow(INITIAL_DATA_COUNT); // 초기 상태로 돌아가기
   };
   return (
     <View style={styles.container}>
@@ -78,13 +82,20 @@ export default function RankingScreen() {
           }}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
         />
-        {/* 더보기 버튼 */}
-        {dataToShow < RANKING_DATA.length && ( // 모든 데이터를 다 보여주면 버튼 숨김
+        {/* 더보기/줄이기 버튼 */}
+        {dataToShow < RANKING_DATA.length ? (
           <TouchableOpacity
             onPress={handleShowAll}
-            style={styles.moreButtonContainer}
+            style={styles.buttonContainer}
           >
-            <Text style={styles.moreButton}>등수 전체 보기</Text>
+            <Text style={styles.buttonText}>등수 전체 보기</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={handleCollapse}
+            style={styles.buttonContainer}
+          >
+            <Text style={styles.buttonText}>줄이기</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -157,7 +168,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
   },
-
+  buttonContainer: {
+    marginTop: 20,
+    alignItems: "center",
+  },
   currentUserRow: {
     backgroundColor: "#f0f8ff", // 현재 사용자의 행 배경색
     borderRadius: 8, // 모서리를 둥글게
