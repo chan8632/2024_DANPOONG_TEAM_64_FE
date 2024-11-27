@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import { View, Text, FlatList, StyleSheet, Platform } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
 
@@ -33,13 +33,6 @@ export default function RankingScreen() {
           )}
         />
       </View>
-
-      {/* 하단 네비게이션 */}
-      <View style={styles.bottomNav}>
-        <MaterialIcons name="home" size={32} color="black" />
-        <MaterialIcons name="bar-chart" size={32} color="blue" />
-        <MaterialIcons name="person" size={32} color="black" />
-      </View>
     </View>
   );
 }
@@ -57,9 +50,21 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   rankList: {
-    borderWidth: 1,
-    borderRadius: 10,
-    padding: 10,
+    backgroundColor: "#fff", // 그림자가 보이게 하려면 배경색 추가
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 5 }, // 그림자의 방향
+        shadowOpacity: 0.3, // 그림자 투명도
+        shadowRadius: 10, // 그림자 퍼짐 정도
+      },
+      android: {
+        elevation: 10, // Android 그림자
+      },
+    }),
+    borderRadius: 10, // 박스 모서리 둥글게
+    padding: 30,
+    marginVertical: 10, // 위아래 간격 추가
   },
   row: {
     flexDirection: "row",
