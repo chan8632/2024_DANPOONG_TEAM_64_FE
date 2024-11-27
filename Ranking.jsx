@@ -1,5 +1,12 @@
-import React from "react";
-import { View, Text, FlatList, StyleSheet, Platform } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  Platform,
+  TouchableOpacity,
+} from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
 
@@ -11,6 +18,9 @@ const RANKING_DATA = [
   { rank: 4, name: "유진", score: 6 },
   { rank: 4, name: "사랑", score: 6 },
   { rank: 7, name: "지니", score: 4 },
+  { rank: 8, name: "철수", score: 3 },
+  { rank: 9, name: "영희", score: 2 },
+  { rank: 10, name: "민수", score: 1 },
 ];
 
 const renderHeader = () => (
@@ -22,6 +32,11 @@ const renderHeader = () => (
 );
 
 export default function RankingScreen() {
+  const [dataToShow, setDataToShow] = useState(7); // 초기 데이터는 7개만 표시
+
+  const handleShowAll = () => {
+    setDataToShow(RANKING_DATA.length); // 데이터 전체를 보여줌
+  };
   return (
     <View style={styles.container}>
       {/* 상단 사용자 메시지 */}
@@ -30,7 +45,7 @@ export default function RankingScreen() {
       {/* 순위 리스트 */}
       <View style={styles.rankList}>
         <FlatList
-          data={RANKING_DATA}
+          data={RANKING_DATA.slice(0, dataToShow)}
           keyExtractor={(item, index) => index.toString()}
           ListHeaderComponent={renderHeader}
           renderItem={({ item }) => {
@@ -63,6 +78,15 @@ export default function RankingScreen() {
           }}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
         />
+        {/* 더보기 버튼 */}
+        {dataToShow < RANKING_DATA.length && ( // 모든 데이터를 다 보여주면 버튼 숨김
+          <TouchableOpacity
+            onPress={handleShowAll}
+            style={styles.moreButtonContainer}
+          >
+            <Text style={styles.moreButton}>등수 전체 보기</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -141,5 +165,14 @@ const styles = StyleSheet.create({
   currentUserText: {
     color: "#007bff", // 현재 사용자의 텍스트 색상(파란색)
     fontWeight: "bold", // 텍스트 강조
+  },
+  moreButtonContainer: {
+    marginTop: 20,
+    alignItems: "center",
+  },
+  moreButton: {
+    color: "#007bff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
