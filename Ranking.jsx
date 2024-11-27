@@ -13,6 +13,14 @@ const RANKING_DATA = [
   { rank: 7, name: "지니", score: 4 },
 ];
 
+const renderHeader = () => (
+  <View style={styles.headerRow}>
+    <Text style={[styles.headerText, styles.rank]}>등수</Text>
+    <Text style={[styles.headerText, styles.name]}>닉네임</Text>
+    <Text style={[styles.headerText, styles.score]}>점수</Text>
+  </View>
+);
+
 export default function RankingScreen() {
   return (
     <View style={styles.container}>
@@ -24,6 +32,7 @@ export default function RankingScreen() {
         <FlatList
           data={RANKING_DATA}
           keyExtractor={(item, index) => index.toString()}
+          ListHeaderComponent={renderHeader}
           renderItem={({ item }) => {
             const isCurrentUser = item.name === "지니";
 
@@ -52,6 +61,7 @@ export default function RankingScreen() {
               </View>
             );
           }}
+          ItemSeparatorComponent={() => <View style={styles.separator} />}
         />
       </View>
     </View>
@@ -87,6 +97,18 @@ const styles = StyleSheet.create({
     padding: 30,
     marginVertical: 10, // 위아래 간격 추가
   },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
+    paddingBottom: 10,
+    marginBottom: 10,
+  },
+  headerText: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -107,12 +129,11 @@ const styles = StyleSheet.create({
     width: 50,
     textAlign: "center",
   },
-  bottomNav: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 20,
-    borderTopWidth: 1,
+  separator: {
+    borderBottomWidth: 1,
+    borderBottomColor: "#eee",
   },
+
   currentUserRow: {
     backgroundColor: "#f0f8ff", // 현재 사용자의 행 배경색
     borderRadius: 8, // 모서리를 둥글게
