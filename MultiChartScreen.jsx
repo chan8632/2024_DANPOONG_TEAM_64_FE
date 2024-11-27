@@ -7,10 +7,18 @@ import Google from "./stock/Google.json";
 import Meta from "./stock/Meta.json";
 import Microsoft from "./stock/Microsoft.json";
 import Nvidia from "./stock/Nvidia.json";
+import AmazonLogo from "./assets/Logo=Amazon.svg";
+import AppleLogo from "./assets/Logo=Apple.svg";
+import GoogleLogo from "./assets/Logo=Google.svg";
+import MetaLogo from "./assets/Logo=Meta.svg";
+import MsLogo from "./assets/Logo=Microsoft.svg";
+import NvidiaLogo from "./assets/Logo=Nvidia.svg";
+
 // 주식 데이터를 처리하는 함수
-const processStockData = (name, rawData) => {
+const processStockData = (name, rawData, logo) => {
   return {
     name,
+    logo,
     closePrices: rawData.dailyResults.map((result) =>
       parseFloat(result.closePrice).toFixed(1)
     ),
@@ -21,19 +29,19 @@ const processStockData = (name, rawData) => {
 };
 
 const MultiChartScreen = () => {
-  // 처리된 데이터
   const stockData = [
-    processStockData("아마존", Amazon),
-    processStockData("애플", Apple),
-    processStockData("구글", Google),
-    processStockData("메타", Meta),
-    processStockData("마이크로소프트", Microsoft),
-    processStockData("엔비디아", Nvidia),
+    processStockData("아마존", Amazon, AmazonLogo),
+    processStockData("애플", Apple, AppleLogo),
+    processStockData("구글", Google, GoogleLogo),
+    processStockData("메타", Meta, MetaLogo),
+    processStockData("마이크로소프트", Microsoft, MsLogo),
+    processStockData("엔비디아", Nvidia, NvidiaLogo),
   ];
 
   const renderItem = ({ item }) => (
     <View style={styles.chartContainer}>
       <Text style={styles.title}>{item.name}</Text>
+      <item.logo width={50} height={50} />
       <CustomLineChart data={item.closePrices} labels={item.dates} />
     </View>
   );
