@@ -5,6 +5,7 @@ import LoginScreen from "./LoginScreen";
 import ResultScreen from "./ResultScreen";
 import PredictScreen from "./PredictScreen";
 import { createStackNavigator } from "@react-navigation/stack";
+import Ranking from "./Ranking";
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,7 @@ export default function App() {
           name="오늘은 올라갈까 내려갈까?"
           component={PredictScreen}
         />
+        <Stack.Screen name="이주의 랭킹" component={Ranking} />
       </Stack.Navigator>
     </NavigationContainer>
   );
