@@ -24,13 +24,34 @@ export default function RankingScreen() {
         <FlatList
           data={RANKING_DATA}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <View style={styles.row}>
-              <Text style={styles.rank}>{item.rank}</Text>
-              <Text style={styles.name}>{item.name}</Text>
-              <Text style={styles.score}>{item.score}</Text>
-            </View>
-          )}
+          renderItem={({ item }) => {
+            const isCurrentUser = item.name === "지니";
+
+            return (
+              <View
+                style={[styles.row, isCurrentUser && styles.currentUserRow]}
+              >
+                <Text
+                  style={[styles.rank, isCurrentUser && styles.currentUserText]}
+                >
+                  {item.rank}
+                </Text>
+                <Text
+                  style={[styles.name, isCurrentUser && styles.currentUserText]}
+                >
+                  {item.name}
+                </Text>
+                <Text
+                  style={[
+                    styles.score,
+                    isCurrentUser && styles.currentUserText,
+                  ]}
+                >
+                  {item.score}
+                </Text>
+              </View>
+            );
+          }}
         />
       </View>
     </View>
@@ -91,5 +112,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     padding: 20,
     borderTopWidth: 1,
+  },
+  currentUserRow: {
+    backgroundColor: "#f0f8ff", // 현재 사용자의 행 배경색
+    borderRadius: 8, // 모서리를 둥글게
+  },
+  currentUserText: {
+    color: "#007bff", // 현재 사용자의 텍스트 색상(파란색)
+    fontWeight: "bold", // 텍스트 강조
   },
 });
