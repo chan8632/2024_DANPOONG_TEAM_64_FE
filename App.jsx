@@ -6,6 +6,7 @@ import ResultScreen from "./ResultScreen";
 import PredictScreen from "./PredictScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import Ranking from "./Ranking";
+import MultiChartScreen from "./MultiChartScreen";
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,7 @@ export default function App() {
           component={PredictScreen}
         />
         <Stack.Screen name="이주의 랭킹" component={Ranking} />
+        <Stack.Screen name="주식차트" component={MultiChartScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

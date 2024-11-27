@@ -67,6 +67,13 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text>랭킹존</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("주식차트");
+        }}
+      >
+        <Text>주식차트</Text>
+      </TouchableOpacity>
       <View style={styles.cardContainer}>
         {/* 결과보기 카드 */}
         <View style={styles.cardWrapper}>
