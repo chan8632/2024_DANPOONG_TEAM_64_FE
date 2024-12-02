@@ -12,7 +12,7 @@
       "date": "2024-10-02",
       "openPrice": 124.3,
       "averagePrice": 125.1,
-      "closePrice": 124.9
+      "closePrice": 140
     },
     {
       "date": "2024-10-03",
@@ -30,7 +30,7 @@
       "date": "2024-10-05",
       "openPrice": 125.7,
       "averagePrice": 126.4,
-      "closePrice": 126.2
+      "closePrice": 130
     },
     {
       "date": "2024-10-06",
@@ -66,7 +66,7 @@
       "date": "2024-10-11",
       "openPrice": 129.9,
       "averagePrice": 130.8,
-      "closePrice": 130.6
+      "closePrice": 124
     },
     {
       "date": "2024-10-12",
@@ -90,7 +90,7 @@
       "date": "2024-10-15",
       "openPrice": 133.0,
       "averagePrice": 133.8,
-      "closePrice": 133.6
+      "closePrice": 130
     },
     {
       "date": "2024-10-16",
@@ -114,7 +114,7 @@
       "date": "2024-10-19",
       "openPrice": 136.1,
       "averagePrice": 137.0,
-      "closePrice": 136.8
+      "closePrice": 125
     },
     {
       "date": "2024-10-20",

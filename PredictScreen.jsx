@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 import {
+  Platform,
   StyleSheet,
   Text,
-  View,
   TouchableOpacity,
-  Platform,
+  View,
 } from "react-native";
-import { Dimensions } from "react-native";
-import { LineChart } from "react-native-chart-kit";
+import Down from "./assets/예상하기/내려간다.svg";
+import Up from "./assets/예상하기/올라간다.svg";
+import CustomLineChart from "./CustomLineChart";
 import Amazon from "./stock/Amazon.json";
 import Apple from "./stock/Apple.json";
 import Google from "./stock/Google.json";
 import Meta from "./stock/Meta.json";
 import Microsoft from "./stock/Microsoft.json";
 import Nvidia from "./stock/Nvidia.json";
-import Up from "./assets/예상하기/올라간다.svg";
-import Down from "./assets/예상하기/내려간다.svg";
 
 const PredictScreen = ({ route }) => {
   const [closePrices, setClosePrices] = useState([]);
@@ -70,31 +69,7 @@ const PredictScreen = ({ route }) => {
       <Text style={styles.stockPrice}>${closePrices.at(-1)}</Text>
       <View>
         {closePrices.length > 0 && date.length > 0 ? (
-          <LineChart
-            data={{
-              labels: reducedLabels,
-              datasets: [
-                {
-                  data: closePrices,
-                },
-              ],
-            }}
-            width={Dimensions.get("window").width - 40}
-            height={200}
-            yAxisSuffix="$"
-            chartConfig={{
-              backgroundColor: "#ffffff",
-              backgroundGradientFrom: "#ffffff",
-              backgroundGradientTo: "#ffffff",
-              decimalPlaces: 2,
-              color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              style: {
-                borderRadius: 16,
-              },
-            }}
-            style={styles.chart}
-          />
+          <CustomLineChart data={closePrices} labels={date} />
         ) : (
           <Text>Loading chart data...</Text>
         )}
@@ -146,10 +121,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "red",
   },
-  chart: {
-    marginVertical: 8,
-    borderRadius: 16,
-  },
+
   newsButton: {
     backgroundColor: "#f0f0f0",
     padding: 15,
