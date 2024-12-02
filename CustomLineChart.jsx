@@ -20,20 +20,27 @@ const CustomLineChart = ({ data, labels }) => {
           },
         ],
       }}
-      width={Dimensions.get("window").width - 40}
+      width={Dimensions.get("window").width - 50}
       height={200}
       yAxisSuffix="$"
       chartConfig={{
         backgroundColor: "#ffffff",
         backgroundGradientFrom: "#ffffff",
         backgroundGradientTo: "#ffffff",
-        decimalPlaces: 2,
+        decimalPlaces: 1,
         color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
         labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
         style: {
           borderRadius: 16,
         },
+        propsForBackgroundLines: {
+          strokeWidth: 1, // 축 선 두께를 지정
+          strokeDasharray: "0", // 실선으로 설정 (점선 제거)
+          stroke: "rgba(0, 0, 255, 1)", // 검은색 실선
+        },
       }}
+      withInnerLines={false} // 내부 점선 제거
+      withOuterLines={true}
       style={styles.chart}
     />
   );

@@ -20,7 +20,7 @@ const processStockData = (name, rawData, logo) => {
     name,
     logo,
     closePrices: rawData.dailyResults.map((result) =>
-      parseFloat(result.closePrice).toFixed(1)
+      Math.round(parseFloat(result.closePrice))
     ),
     dates: rawData.dailyResults.map((result) =>
       parseFloat(result.date.split("-")[2])
@@ -40,8 +40,10 @@ const MultiChartScreen = () => {
 
   const renderItem = ({ item }) => (
     <View style={styles.chartContainer}>
-      <Text style={styles.title}>{item.name}</Text>
-      <item.logo width={50} height={50} />
+      <View style={styles.largeTitle}>
+        <Text style={styles.title}>{item.name}</Text>
+        <item.logo style={styles.logo} width={25} height={25} />
+      </View>
       <CustomLineChart data={item.closePrices} labels={item.dates} />
     </View>
   );
@@ -70,11 +72,18 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
+    elevation: 8,
+  },
+  largeTitle: {
+    flexDirection: "row",
   },
   title: {
     fontSize: 18,
-    fontWeight: "bold",
+
     marginBottom: 10,
+  },
+  logo: {
+    marginLeft: 7,
   },
 });
 
