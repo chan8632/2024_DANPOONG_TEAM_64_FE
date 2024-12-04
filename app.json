@@ -3,7 +3,12 @@
     "name": "데일리 주가 맞추기",
     "slug": "daily-stock-prediction",
     "description": "매일 특정 종목이 오를지 내릴지 예측하는 게임",
-    "keywords": ["stock", "prediction", "finance", "데일리 주가"],
+    "keywords": [
+      "stock",
+      "prediction",
+      "finance",
+      "데일리 주가"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -30,7 +35,12 @@
       },
       "package": "com.yourname.dailyStockPrediction",
       "versionCode": 1,
-      "permissions": ["CAMERA", "INTERNET"]
+      "permissions": [
+        "CAMERA",
+        "INTERNET",
+        "CAMERA",
+        "INTERNET"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -56,6 +66,18 @@
           }
         ]
       }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7c0d2a15-93d6-48ea-b73a-11e446ea908a"
+      }
+    },
+    "owner": "chomu8632",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/7c0d2a15-93d6-48ea-b73a-11e446ea908a"
     }
   }
 }
