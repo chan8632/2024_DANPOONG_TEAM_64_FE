@@ -15,8 +15,10 @@ import MetaLogo from "./assets/Logo=Meta.svg";
 import MsLogo from "./assets/Logo=Microsoft.svg";
 import NvidiaLogo from "./assets/Logo=Nvidia.svg";
 import MainLogo from "./assets/홈스크린/주식 한입 작은버전.svg";
+import { useSelector } from "react-redux";
 
 const HomeScreen = ({ navigation }) => {
+  const currentScore = useSelector((state) => state.score.currentScore);
   const stocks = [
     {
       id: "1",
@@ -65,7 +67,7 @@ const HomeScreen = ({ navigation }) => {
           navigation.navigate("이주의 랭킹");
         }}
       >
-        <Text>랭킹존</Text>
+        <Text>랭킹</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
@@ -83,7 +85,7 @@ const HomeScreen = ({ navigation }) => {
               navigation.navigate("결과보기");
             }}
           >
-            <Text style={styles.cardText}>7 / 10</Text>
+            <Text style={styles.cardText}> {currentScore} / 10</Text>
           </TouchableOpacity>
           <Text style={styles.cardSubtext}>결과 보기</Text>
         </View>

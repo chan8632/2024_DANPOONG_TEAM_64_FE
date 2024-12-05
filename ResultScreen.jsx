@@ -1,6 +1,7 @@
 import React from "react";
 
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useSelector } from "react-redux"; // Redux에서 상태를 가져오기 위해 추가
 
 import AppleOn from "./assets/Stamp/appleOn.svg";
 import GoogleOn from "./assets/Stamp/googleOn.svg";
@@ -19,6 +20,7 @@ import MetaOff from "./assets/Stamp/metaOff.svg";
 import Nullsvg from "./assets/Stamp/null.svg";
 
 const ResultScreen = () => {
+  const currentScore = useSelector((state) => state.score.currentScore);
   const logoSize = 55;
   const datas = [
     "appleOn",
@@ -39,7 +41,6 @@ const ResultScreen = () => {
     datas.slice(0, 3), // 첫 번째 행
     datas.slice(3, 7), // 두 번째 행
     datas.slice(7, 10), // 세 번째 행
-
   ];
 
   // 상태와 SVG를 매핑
@@ -59,16 +60,14 @@ const ResultScreen = () => {
     null: Nullsvg,
   };
 
-
   return (
     <View style={styles.container}>
-
       {/* 결과 텍스트 */}
       <Text style={styles.titleText}>지니 님은</Text>
       <Text style={styles.highlightText}>
-        총 <Text style={styles.highlightNumber}>7번</Text> 맞히셨네요!
+        총 <Text style={styles.highlightNumber}>{currentScore}번</Text>{" "}
+        맞히셨네요!
       </Text>
-
 
       {/* 로고 그리드 */}
       <View style={styles.logoContainer}>
@@ -97,7 +96,6 @@ const ResultScreen = () => {
             })}
           </View>
         ))}
-
       </View>
     </View>
   );
@@ -144,7 +142,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   logoWrapper: {},
-
 });
 
 export default ResultScreen;
