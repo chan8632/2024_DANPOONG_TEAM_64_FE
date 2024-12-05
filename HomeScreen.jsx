@@ -62,8 +62,8 @@ const HomeScreen = ({ navigation }) => {
 
   const calculateRemainingTime = () => {
     const now = dayjs();
-    const startTime = dayjs().hour(16).minute(0).second(0);
-    const endTime = dayjs().hour(16).minute(30).second(0);
+    const startTime = dayjs().hour(23).minute(0).second(0);
+    const endTime = startTime.add(7, "hour");
 
     if (now.isBefore(startTime)) {
       //현재 시각이 오후 11시 이전이면 타이머 멈춤
