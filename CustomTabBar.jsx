@@ -44,6 +44,8 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
           IconComponent = isFocused ? RankingIconOn : RankingIconOff;
         } else if (label === "주식차트") {
           IconComponent = isFocused ? StocksIconOn : StocksIconOff;
+        } else if (label === "프로필") {
+          IconComponent = isFocused ? ProfileIconOn : ProfileIconOff;
         }
         return (
           <TouchableOpacity

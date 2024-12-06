@@ -12,6 +12,7 @@ import store from "./src/store/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CustomTabBar from "./CustomTabBar";
 import { TouchableOpacity, Text } from "react-native";
+import profile from "./profile";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -52,6 +53,7 @@ function MainTabs() {
         }}
       />
       <Tab.Screen name="주식차트" component={MultiChartScreen} />
+      <Tab.Screen name="프로필" component={profile}/>
     </Tab.Navigator>
   );
 }

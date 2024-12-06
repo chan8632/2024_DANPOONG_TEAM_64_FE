@@ -59,11 +59,11 @@ const ResultScreen = () => {
     metaOff: MetaOff,
     null: Nullsvg,
   };
-
+  const userName = useSelector((state) => state.user.name);
   return (
     <View style={styles.container}>
       {/* 결과 텍스트 */}
-      <Text style={styles.titleText}>지니 님은</Text>
+      <Text style={styles.titleText}>{userName} 님은</Text>
       <Text style={styles.highlightText}>
         총 <Text style={styles.highlightNumber}>{currentScore}번</Text>{" "}
         맞히셨네요!
