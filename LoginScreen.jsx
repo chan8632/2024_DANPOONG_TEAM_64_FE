@@ -13,7 +13,7 @@ export default function LoginScreen({ navigation }) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          navigation.navigate("Home");
+          navigation.replace("MainTabs");
         }}
       >
         <KakakoImage width={50} height={50} />

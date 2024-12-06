@@ -19,6 +19,7 @@ import { useSelector } from "react-redux";
 import duration from "dayjs/plugin/duration"; // 플러그인 가져오기
 dayjs.extend(duration); // 플러그인 활성화
 const HomeScreen = ({ navigation }) => {
+  const userName = useSelector((state) => state.user.name);
   const currentScore = useSelector((state) => state.score.currentScore);
   const stocks = [
     {
@@ -101,21 +102,10 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <MainLogo width={100} height={40} />
-      <Text style={styles.greeting}>지니님,{"\n"}안녕하세요!</Text>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("이주의 랭킹");
-        }}
-      >
-        <Text>랭킹</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("주식차트");
-        }}
-      >
-        <Text>주식차트</Text>
-      </TouchableOpacity>
+      <Text style={styles.greeting}>
+        {userName}님,{"\n"}안녕하세요!
+      </Text>
+
       <View style={styles.cardContainer}>
         {/* 결과보기 카드 */}
         <View style={styles.cardWrapper}>
@@ -168,7 +158,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     paddingHorizontal: 20,
-    paddingTop: 60,
+    paddingTop: 30,
   },
   greeting: {
     fontSize: 25,

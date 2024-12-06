@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useSelector } from "react-redux";
 
 const RANKING_DATA = [
   { rank: 1, name: "연찬", score: 7 },
@@ -32,6 +33,7 @@ const renderHeader = () => (
 );
 
 export default function RankingScreen() {
+  const userName = useSelector((state) => state.user.name);
   const INITIAL_DATA_COUNT = 7; // 초기 표시 데이터 개수
   const [dataToShow, setDataToShow] = useState(INITIAL_DATA_COUNT); // 초기 데이터는 7개만 표시
 
@@ -44,7 +46,7 @@ export default function RankingScreen() {
   return (
     <View style={styles.container}>
       {/* 상단 사용자 메시지 */}
-      <Text style={styles.title}>지니 님은 이번 주 7등이네요!</Text>
+      <Text style={styles.title}>{userName} 님은 이번 주 7등이네요!</Text>
 
       {/* 순위 리스트 */}
       <View style={styles.rankList}>
@@ -53,7 +55,7 @@ export default function RankingScreen() {
           keyExtractor={(item, index) => index.toString()}
           ListHeaderComponent={renderHeader}
           renderItem={({ item }) => {
-            const isCurrentUser = item.name === "지니";
+            const isCurrentUser = item.name === userName;
 
             return (
               <View
