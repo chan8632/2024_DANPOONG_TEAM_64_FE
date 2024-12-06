@@ -2,6 +2,7 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import React from "react";
 import HomeScreen from "./HomeScreen";
 import LoginScreen from "./LoginScreen";
+import SignupScreen from './SignupScreen';
 import ResultScreen from "./ResultScreen";
 import PredictScreen from "./PredictScreen";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -85,6 +86,8 @@ export default function App() {
         >
           {/* 로그인 페이지 */}
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Signup" component={SignupScreen} />
+
           {/* 로그인 이후 화면은 MainTabs를 사용 */}
           <Stack.Screen name="MainTabs" component={MainTabs} />
         </Stack.Navigator>

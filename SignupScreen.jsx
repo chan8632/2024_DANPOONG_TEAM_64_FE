@@ -1,27 +1,37 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+} from "react-native";
 import { auth } from "./firebaseConfig";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigation } from '@react-navigation/native';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
-export default function LoginScreen({ navigation }) {
-  const usenavigation = useNavigation();
+export default function SignupScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleSignup = async () => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log("Logged in with:", userCredential.user.email);
-      navigation.replace("MainTabs"); // 로그인 성공 후 메인 화면으로 이동
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log("User signed up:", userCredential.user.email);
+      Alert.alert("회원가입 성공", "로그인 페이지로 이동합니다.");
+      navigation.navigate("Login");
     } catch (error) {
-      Alert.alert("로그인 실패", error.message);
+      Alert.alert("회원가입 실패", error.message);
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>로그인</Text>
+      <Text style={styles.title}>회원가입</Text>
       <TextInput
         style={styles.input}
         placeholder="이메일"
@@ -36,15 +46,7 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>로그인</Text>
-      </TouchableOpacity>
-
-      {/* 회원가입 버튼 추가 */}
-      <TouchableOpacity
-        style={[styles.button, styles.signupButton]}
-        onPress={() => navigation.navigate("Signup")} // 회원가입 화면으로 이동
-      >
+      <TouchableOpacity style={styles.button} onPress={handleSignup}>
         <Text style={styles.buttonText}>회원가입</Text>
       </TouchableOpacity>
     </View>
@@ -73,13 +75,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#0078D4",
     padding: 10,
     borderRadius: 5,
-    marginTop: 10,
   },
   buttonText: {
     color: "#fff",
     fontSize: 16,
-  },
-  signupButton: {
-    backgroundColor: "#34a853", // 회원가입 버튼 색상 변경 (초록색)
   },
 });
