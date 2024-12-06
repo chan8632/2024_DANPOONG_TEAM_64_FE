@@ -13,6 +13,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CustomTabBar from "./CustomTabBar";
 import { TouchableOpacity, Text } from "react-native";
 import profile from "./profile";
+import NewsScreen from "./NewsScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,6 +31,8 @@ function BackButton() {
 }
 // 메뉴바 포함 화면 (Home, Result, Predict, Ranking, MultiChart)
 function MainTabs() {
+  const Stack = createStackNavigator();
+
   return (
     <Tab.Navigator
       tabBar={(props) => <CustomTabBar {...props} />}
@@ -37,23 +40,38 @@ function MainTabs() {
         headerTitleAlign: "center",
       }}
     >
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          headerShown: false, // Home 화면에는 헤더를 숨김
-        }}
-      />
-
+      {/* 홈 화면 */}
+      <Tab.Screen name="Home" options={{ headerShown: false }}>
+        {() => (
+          <Stack.Navigator screenOptions={{ headerShown: true }}>
+            <Stack.Screen
+              name="HomeTab"
+              component={HomeScreen}
+              options={{
+                headerShown: false, // 헤더를 숨김
+              }}
+            />
+            <Stack.Screen name="결과보기" component={ResultScreen} />
+            <Stack.Screen
+              name="오늘은 올라갈까 내려갈까?"
+              component={PredictScreen}
+            />
+            <Stack.Screen name="뉴스" component={NewsScreen} />
+          </Stack.Navigator>
+        )}
+      </Tab.Screen>
+      {/* 랭킹 화면 */}
       <Tab.Screen
         name="랭킹"
         component={Ranking}
         options={{
-          headerLeft: () => <BackButton />, // 커스텀 뒤로 가기 버튼 추가
+          headerLeft: () => <BackButton />,
         }}
       />
+      {/* 주식차트 화면 */}
       <Tab.Screen name="주식차트" component={MultiChartScreen} />
-      <Tab.Screen name="프로필" component={profile}/>
+      {/* 프로필 화면 */}
+      <Tab.Screen name="프로필" component={profile} />
     </Tab.Navigator>
   );
 }
@@ -65,13 +83,10 @@ export default function App() {
           initialRouteName="Login"
           screenOptions={{ headerShown: false }}
         >
+          {/* 로그인 페이지 */}
           <Stack.Screen name="Login" component={LoginScreen} />
+          {/* 로그인 이후 화면은 MainTabs를 사용 */}
           <Stack.Screen name="MainTabs" component={MainTabs} />
-          <Stack.Screen name="결과보기" component={ResultScreen} />
-          <Stack.Screen
-            name="오늘은 올라갈까 내려갈까?"
-            component={PredictScreen}
-          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
