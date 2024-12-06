@@ -15,6 +15,7 @@ import Google from "./stock/Google.json";
 import Meta from "./stock/Meta.json";
 import Microsoft from "./stock/Microsoft.json";
 import Nvidia from "./stock/Nvidia.json";
+import { useNavigation } from "@react-navigation/native";
 
 const PredictScreen = ({ route }) => {
   const [closePrices, setClosePrices] = useState([]);
@@ -59,7 +60,7 @@ const PredictScreen = ({ route }) => {
     }
     return ""; // 빈 문자열로 출력되지 않도록
   });
-
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -74,7 +75,12 @@ const PredictScreen = ({ route }) => {
           <Text>Loading chart data...</Text>
         )}
       </View>
-      <TouchableOpacity style={styles.newsButton}>
+      <TouchableOpacity
+        style={styles.newsButton}
+        onPress={() =>
+          navigation.navigate("뉴스", { stockTicker: stock.ticker })
+        }
+      >
         <Text style={styles.newsButtonText}>뉴스 보러가기</Text>
       </TouchableOpacity>
       <View style={styles.actionButtons}>
