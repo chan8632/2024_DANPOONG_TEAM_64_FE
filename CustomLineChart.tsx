@@ -2,7 +2,12 @@ import React from "react";
 import { Dimensions, StyleSheet } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 
-const CustomLineChart = ({ data, labels }) => {
+interface CustomLineChartProps {
+  data: number[]; // 데이터 배열
+  labels: string[]; // 레이블 배열
+}
+
+const CustomLineChart: React.FC<CustomLineChartProps> = ({ data, labels }) => {
   const reducedLabels = labels.map((value, index) => {
     if (index % Math.ceil(labels.length / 5) === 0) {
       return value; // 표시할 레이블

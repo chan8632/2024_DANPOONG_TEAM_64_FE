@@ -1,15 +1,21 @@
+import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
-import HomeIconOn from "./assets/menuBar/HomeOn.svg";
+import { Text, TouchableOpacity, View } from "react-native";
+import { SvgProps } from "react-native-svg";
 import HomeIconOff from "./assets/menuBar/HomeOff.svg";
-import ProfileIconOn from "./assets/menuBar/profileOn.svg";
+import HomeIconOn from "./assets/menuBar/HomeOn.svg";
 import ProfileIconOff from "./assets/menuBar/profileOff.svg";
-import RankingIconOn from "./assets/menuBar/rankingOn.svg";
+import ProfileIconOn from "./assets/menuBar/profileOn.svg";
 import RankingIconOff from "./assets/menuBar/rankingOff.svg";
-import StocksIconOn from "./assets/menuBar/stocksOn.svg";
+import RankingIconOn from "./assets/menuBar/rankingOn.svg";
 import StocksIconOff from "./assets/menuBar/stocksOff.svg";
+import StocksIconOn from "./assets/menuBar/stocksOn.svg";
 
-export default function CustomTabBar({ state, descriptors, navigation }) {
+const CustomTabBar: React.FC<BottomTabBarProps> = ({
+  state,
+  descriptors,
+  navigation,
+}) => {
   return (
     <View
       style={{ flexDirection: "row", backgroundColor: "white", padding: 10 }}
@@ -37,7 +43,7 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
           }
         };
         // 탭 라벨에 맞는 아이콘 설정 (예시)
-        let IconComponent;
+        let IconComponent: React.FC<SvgProps> | undefined;
         if (label === "Home") {
           IconComponent = isFocused ? HomeIconOn : HomeIconOff;
         } else if (label === "랭킹") {
@@ -60,12 +66,16 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
                 style={{ marginBottom: 4 }}
               />
             )}
-            <Text style={{ color: isFocused ? "#0063FC" : "#8E98A8" }}>
-              {label}
-            </Text>
+            {typeof label === "string" ? ( // label이 문자열인 경우만 Text에 렌더링
+              <Text style={{ color: isFocused ? "#0063FC" : "#8E98A8" }}>
+                {label}
+              </Text>
+            ) : null}
           </TouchableOpacity>
         );
       })}
     </View>
   );
-}
+};
+
+export default CustomTabBar;
