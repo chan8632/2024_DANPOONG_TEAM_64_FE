@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import {
-  View,
-  Text,
   FlatList,
-  StyleSheet,
   Platform,
+  StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { MaterialIcons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
+import { RootState } from "./src/store";
 
 const RANKING_DATA = [
   { rank: 1, name: "연찬", score: 7 },
@@ -33,7 +32,7 @@ const renderHeader = () => (
 );
 
 export default function RankingScreen() {
-  const userName = useSelector((state) => state.user.name);
+  const userName = useSelector((state: RootState) => state.user.name);
   const INITIAL_DATA_COUNT = 7; // 초기 표시 데이터 개수
   const [dataToShow, setDataToShow] = useState(INITIAL_DATA_COUNT); // 초기 데이터는 7개만 표시
 
@@ -90,14 +89,14 @@ export default function RankingScreen() {
             onPress={handleShowAll}
             style={styles.buttonContainer}
           >
-            <Text style={styles.buttonText}>등수 전체 보기</Text>
+            <Text >등수 전체 보기</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
             onPress={handleCollapse}
             style={styles.buttonContainer}
           >
-            <Text style={styles.buttonText}>줄이기</Text>
+            <Text >줄이기</Text>
           </TouchableOpacity>
         )}
       </View>

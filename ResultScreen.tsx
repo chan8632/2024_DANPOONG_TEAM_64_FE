@@ -18,9 +18,10 @@ import MicrosoftOff from "./assets/Stamp/msOff.svg";
 import MetaOff from "./assets/Stamp/metaOff.svg";
 
 import Nullsvg from "./assets/Stamp/null.svg";
+import { RootState } from "./src/store";
 
 const ResultScreen = () => {
-  const currentScore = useSelector((state) => state.score.currentScore);
+  const currentScore = useSelector((state:RootState) => state.score.currentScore);
   const logoSize = 55;
   const datas = [
     "appleOn",
@@ -59,7 +60,7 @@ const ResultScreen = () => {
     metaOff: MetaOff,
     null: Nullsvg,
   };
-  const userName = useSelector((state) => state.user.name);
+  const userName = useSelector((state:RootState) => state.user.name);
   return (
     <View style={styles.container}>
       {/* 결과 텍스트 */}

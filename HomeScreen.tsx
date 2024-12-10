@@ -17,11 +17,25 @@ import NvidiaLogo from "./assets/Logo=Nvidia.svg";
 import MainLogo from "./assets/홈스크린/주식 한입 작은버전.svg";
 import { useSelector } from "react-redux";
 import duration from "dayjs/plugin/duration"; // 플러그인 가져오기
+import { SvgProps } from "react-native-svg";
+import { RootState } from "./src/store/index";
 dayjs.extend(duration); // 플러그인 활성화
+
+// 타입 정의
+interface Stock {
+  id: string;
+  name: string;
+  price: string;
+  logo: React.FC<SvgProps>;
+  ticker: string;
+}
+
 const HomeScreen = ({ navigation }) => {
-  const userName = useSelector((state) => state.user.name);
-  const currentScore = useSelector((state) => state.score.currentScore);
-  const stocks = [
+  const userName = useSelector((state: RootState) => state.user.name);
+  const currentScore = useSelector(
+    (state: RootState) => state.score.currentScore
+  );
+  const stocks: Stock[] = [
     {
       id: "1",
       name: "애플",
@@ -63,8 +77,8 @@ const HomeScreen = ({ navigation }) => {
 
   const calculateRemainingTime = () => {
     const now = dayjs();
-    const startTime = dayjs().hour(23).minute(0).second(0);
-    const endTime = startTime.add(7, "hour");
+    const startTime = dayjs().hour(9).minute(0).second(0);
+    const endTime = startTime.add(16, "hour");
 
     if (now.isBefore(startTime)) {
       //현재 시각이 오후 11시 이전이면 타이머 멈춤
@@ -93,7 +107,7 @@ const HomeScreen = ({ navigation }) => {
       const time = calculateRemainingTime();
       setRemainingTime(time);
       if (time === "시작 전") {
-        return;
+        clearInterval(timer);
       }
     }, 1000);
     return () => clearInterval(timer);
@@ -125,8 +139,9 @@ const HomeScreen = ({ navigation }) => {
           </View>
           <Text style={styles.cardSubtext}>
             {remainingTime === "시작 전"
-              ? "시작 전"
-              : "남은 시간 안에 맞춰보세요!"}
+              ? `시작 전 \n`
+              : `남은 시간 안에 맞춰보세요! \n`}
+            오전 9시 ~ 다음날 새벽 1시
           </Text>
         </View>
       </View>

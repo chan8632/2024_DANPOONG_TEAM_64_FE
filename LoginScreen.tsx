@@ -1,17 +1,26 @@
-import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from "react-native";
-import { auth } from "./firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigation } from '@react-navigation/native';
+import React, { useState } from "react";
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { auth } from "./firebaseConfig";
 
 export default function LoginScreen({ navigation }) {
-  const usenavigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       console.log("Logged in with:", userCredential.user.email);
       navigation.replace("MainTabs"); // 로그인 성공 후 메인 화면으로 이동
     } catch (error) {

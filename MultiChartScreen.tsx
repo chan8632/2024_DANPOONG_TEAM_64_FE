@@ -13,14 +13,38 @@ import GoogleLogo from "./assets/Logo=Google.svg";
 import MetaLogo from "./assets/Logo=Meta.svg";
 import MsLogo from "./assets/Logo=Microsoft.svg";
 import NvidiaLogo from "./assets/Logo=Nvidia.svg";
+import { SvgProps } from "react-native-svg";
+
+// TypeScript 타입 정의
+type StockData = {
+  name: string;
+  logo: React.FC<SvgProps>;
+  closePrices: number[];
+  dates: number[];
+};
+
+type RawStockData = {
+  dailyResults: {
+    closePrice: number | string;
+    date: string;
+  }[];
+};
 
 // 주식 데이터를 처리하는 함수
-const processStockData = (name, rawData, logo) => {
+const processStockData = (
+  name: string,
+  rawData: RawStockData,
+  logo: React.FC<SvgProps>
+): StockData => {
   return {
     name,
     logo,
     closePrices: rawData.dailyResults.map((result) =>
-      Math.round(parseFloat(result.closePrice))
+      Math.round(
+        typeof result.closePrice === "string"
+          ? parseFloat(result.closePrice)
+          : result.closePrice
+      )
     ),
     dates: rawData.dailyResults.map((result) =>
       parseFloat(result.date.split("-")[2])
