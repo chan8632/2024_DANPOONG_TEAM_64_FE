@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import { useSelector } from "react-redux";
-import { RootState } from "./src/store";
+import { RootState } from "../../store";
 
 const RANKING_DATA = [
   { rank: 1, name: "연찬", score: 7 },
@@ -89,14 +89,14 @@ export default function RankingScreen() {
             onPress={handleShowAll}
             style={styles.buttonContainer}
           >
-            <Text >등수 전체 보기</Text>
+            <Text>등수 전체 보기</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
             onPress={handleCollapse}
             style={styles.buttonContainer}
           >
-            <Text >줄이기</Text>
+            <Text>줄이기</Text>
           </TouchableOpacity>
         )}
       </View>

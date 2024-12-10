@@ -1,20 +1,21 @@
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import React from "react";
-import HomeScreen from "./HomeScreen";
-import LoginScreen from "./LoginScreen";
-import SignupScreen from './SignupScreen';
-import ResultScreen from "./ResultScreen";
-import PredictScreen from "./PredictScreen";
-import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack";
-import Ranking from "./Ranking";
-import MultiChartScreen from "./MultiChartScreen";
+import HomeScreen from "./src/screens/dashboard/HomeScreen";
+import LoginScreen from "./src/screens/auth/LoginScreen";
+import SignupScreen from "./src/screens/auth/SignupScreen";
+import ResultScreen from "./src/screens/result/ResultScreen";
+import PredictScreen from "./src/screens/dashboard/PredictScreen";
+import { createStackNavigator } from "@react-navigation/stack";
+import Ranking from "./src/screens/result/Ranking";
+import MultiChartScreen from "./src/screens/MultiChartScreen";
 import { Provider } from "react-redux";
 import store from "./src/store/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import CustomTabBar from "./CustomTabBar";
+
 import { TouchableOpacity, Text } from "react-native";
-import Profile from "./profile";
-import NewsScreen from "./NewsScreen";
+import Profile from "./src/screens/Profile";
+import NewsScreen from "./src/screens/dashboard/NewsScreen";
+import CustomTabBar from "./src/components/CustomTabBar";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

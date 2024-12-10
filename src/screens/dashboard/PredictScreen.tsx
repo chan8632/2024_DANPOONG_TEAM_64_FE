@@ -8,33 +8,15 @@ import {
 } from "react-native";
 import Down from "./assets/예상하기/내려간다.svg";
 import Up from "./assets/예상하기/올라간다.svg";
-import CustomLineChart from "./CustomLineChart";
-import Amazon from "./stock/Amazon.json";
-import Apple from "./stock/Apple.json";
-import Google from "./stock/Google.json";
-import Meta from "./stock/Meta.json";
-import Microsoft from "./stock/Microsoft.json";
-import Nvidia from "./stock/Nvidia.json";
-import { useNavigation } from "@react-navigation/native";
-import { SvgProps } from "react-native-svg";
+import Amazon from "../../../stock/Amazon.json";
+import Apple from "../../../stock/Apple.json";
+import Google from "../../../stock/Google.json";
+import Meta from "../../../stock/Meta.json";
+import Microsoft from "../../../stock/Microsoft.json";
+import Nvidia from "../../../stock/Nvidia.json";
+import CustomLineChart from "../../components/CustomLineChart";
 
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-type Stock = {
-  ticker: string;
-  name: string;
-  logo?: React.FC<SvgProps>; // React DOM SVG 타입
-};
-type RootStackParamList = {
-  PredictScreen: { stock: Stock };
-  뉴스: { stockTicker: string };
-};
-
-type PredictScreenProps = NativeStackScreenProps<
-  RootStackParamList,
-  "PredictScreen"
->;
-
-const PredictScreen: React.FC<PredictScreenProps> = ({ route }) => {
+const PredictScreen = ({ route, navigation }) => {
   const [closePrices, setClosePrices] = useState<number[]>([]);
   const [date, setDate] = useState<string[]>([]);
   const { stock } = route.params;
@@ -73,8 +55,6 @@ const PredictScreen: React.FC<PredictScreenProps> = ({ route }) => {
     getLocalStockData();
   }, []);
 
-  const navigation =
-    useNavigation<NativeStackScreenProps<RootStackParamList>["navigation"]>();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -103,7 +83,7 @@ const PredictScreen: React.FC<PredictScreenProps> = ({ route }) => {
           <Text style={styles.buttonText}>올라간다</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          <Down/>
+          <Down />
           <Text style={styles.buttonText}>내려간다</Text>
         </TouchableOpacity>
       </View>

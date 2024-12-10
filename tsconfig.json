@@ -25,7 +25,14 @@
     "src/**/*.tsx",
     "src/**/*.js",
     "src/**/*.jsx",
-    "custom.d.ts"
+    "custom.d.ts",
+    "src/screens/result/ResultScreen.tsx",
+    "src/screens/result/Ranking.tsx",
+    "src/screens/dashboard/HomeScreen.tsx",
+    "src/screens/auth/LoginScreen.tsx",
+    "src/screens/auth/SignupScreen.tsx",
+    "src/screens/MultiChartScreen.tsx",
+    "src/screens/Profile.tsx"
   ],
   "exclude": [
     "node_modules",

@@ -17,25 +17,16 @@ import NvidiaLogo from "./assets/Logo=Nvidia.svg";
 import MainLogo from "./assets/홈스크린/주식 한입 작은버전.svg";
 import { useSelector } from "react-redux";
 import duration from "dayjs/plugin/duration"; // 플러그인 가져오기
-import { SvgProps } from "react-native-svg";
-import { RootState } from "./src/store/index";
-dayjs.extend(duration); // 플러그인 활성화
 
-// 타입 정의
-interface Stock {
-  id: string;
-  name: string;
-  price: string;
-  logo: React.FC<SvgProps>;
-  ticker: string;
-}
+import { RootState } from "../../store/index";
+dayjs.extend(duration); // 플러그인 활성화
 
 const HomeScreen = ({ navigation }) => {
   const userName = useSelector((state: RootState) => state.user.name);
   const currentScore = useSelector(
     (state: RootState) => state.score.currentScore
   );
-  const stocks: Stock[] = [
+  const stocks = [
     {
       id: "1",
       name: "애플",
