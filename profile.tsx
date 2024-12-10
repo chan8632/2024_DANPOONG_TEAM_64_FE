@@ -2,9 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useSelector } from "react-redux";
+import { RootState } from "./src/store";
 
-function profile() {
-  const userName = useSelector((state) => state.user.name);
+function Profile() {
+  const userName = useSelector((state: RootState) => state.user.name);
   return (
     <View style={styles.container}>
       {/* 사용자 프로필 정보 */}
@@ -81,4 +82,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default profile;
+export default Profile;

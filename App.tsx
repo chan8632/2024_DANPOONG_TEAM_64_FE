@@ -5,7 +5,7 @@ import LoginScreen from "./LoginScreen";
 import SignupScreen from './SignupScreen';
 import ResultScreen from "./ResultScreen";
 import PredictScreen from "./PredictScreen";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack";
 import Ranking from "./Ranking";
 import MultiChartScreen from "./MultiChartScreen";
 import { Provider } from "react-redux";
@@ -13,7 +13,7 @@ import store from "./src/store/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CustomTabBar from "./CustomTabBar";
 import { TouchableOpacity, Text } from "react-native";
-import profile from "./profile";
+import Profile from "./profile";
 import NewsScreen from "./NewsScreen";
 
 const Stack = createStackNavigator();
@@ -72,7 +72,7 @@ function MainTabs() {
       {/* 주식차트 화면 */}
       <Tab.Screen name="주식차트" component={MultiChartScreen} />
       {/* 프로필 화면 */}
-      <Tab.Screen name="프로필" component={profile} />
+      <Tab.Screen name="프로필" component={Profile} />
     </Tab.Navigator>
   );
 }

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import React from "react";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 
 const newsData = [
   { id: "1", title: "아마존, 클라우드 시장 점유율 상승 전망", ticker: "AMZN" },

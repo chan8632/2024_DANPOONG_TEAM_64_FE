@@ -16,12 +16,31 @@ import Meta from "./stock/Meta.json";
 import Microsoft from "./stock/Microsoft.json";
 import Nvidia from "./stock/Nvidia.json";
 import { useNavigation } from "@react-navigation/native";
+import { SvgProps } from "react-native-svg";
 
-const PredictScreen = ({ route }) => {
-  const [closePrices, setClosePrices] = useState([]);
-  const [date, setDate] = useState([]);
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+type Stock = {
+  ticker: string;
+  name: string;
+  logo?: React.FC<SvgProps>; // React DOM SVG 타입
+};
+type RootStackParamList = {
+  PredictScreen: { stock: Stock };
+  뉴스: { stockTicker: string };
+};
+
+type PredictScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  "PredictScreen"
+>;
+
+const PredictScreen: React.FC<PredictScreenProps> = ({ route }) => {
+  const [closePrices, setClosePrices] = useState<number[]>([]);
+  const [date, setDate] = useState<string[]>([]);
   const { stock } = route.params;
-  const LogoComponent = stock.logo || (() => <Text>Default Logo</Text>);
+  const LogoComponent = stock.logo
+    ? stock.logo
+    : () => <Text>Default Logo</Text>;
 
   // JSON 데이터를 객체로 정리
   const stockData = {
@@ -54,17 +73,12 @@ const PredictScreen = ({ route }) => {
     getLocalStockData();
   }, []);
 
-  const reducedLabels = date.map((value, index) => {
-    if (index % Math.ceil(date.length / 5) === 0) {
-      return value; // 표시할 레이블
-    }
-    return ""; // 빈 문자열로 출력되지 않도록
-  });
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackScreenProps<RootStackParamList>["navigation"]>();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <LogoComponent width={100} height={100} style={styles.logo} />
+        <LogoComponent width={100} height={100} />
         <Text style={styles.stockName}>{stock.name}</Text>
       </View>
       <Text style={styles.stockPrice}>${closePrices.at(-1)}</Text>
@@ -89,7 +103,7 @@ const PredictScreen = ({ route }) => {
           <Text style={styles.buttonText}>올라간다</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          <Down />
+          <Down/>
           <Text style={styles.buttonText}>내려간다</Text>
         </TouchableOpacity>
       </View>
