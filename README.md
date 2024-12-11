@@ -1,4 +1,4 @@
-﻿# 2024_DANPOONG_TEAM_64_FE
+# 2024_DANPOONG_TEAM_64_FE
 # 실행방법
 ## expo 앱을 이용한 실행
 1. 플레이스토어 혹은 앱스토어에서 expo go 설치

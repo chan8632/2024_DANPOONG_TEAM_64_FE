@@ -11,9 +11,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "*": ["node_modules/*"]
+      "*": ["*"]
     },
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,

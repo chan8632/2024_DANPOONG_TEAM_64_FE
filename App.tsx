@@ -1,20 +1,27 @@
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import React from "react";
-import HomeScreen from "./HomeScreen";
-import LoginScreen from "./LoginScreen";
-import SignupScreen from './SignupScreen';
-import ResultScreen from "./ResultScreen";
-import PredictScreen from "./PredictScreen";
-import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack";
-import Ranking from "./Ranking";
-import MultiChartScreen from "./MultiChartScreen";
+
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from "@react-navigation/stack";
+
 import { Provider } from "react-redux";
 import store from "./src/store/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import CustomTabBar from "./CustomTabBar";
+
 import { TouchableOpacity, Text } from "react-native";
-import Profile from "./profile";
-import NewsScreen from "./NewsScreen";
+
+import ResultScreen from "./src/screens/results/ResultScreen";
+import PredictScreen from "./src/screens/PredictScreen";
+import NewsScreen from "./src/screens/dashboard/NewsScreen";
+import RankingScreen from "./src/screens/results/RankingScreen";
+import MultiChartScreen from "./src/screens/dashboard/MultiChartScreen";
+import Profile from "./src/screens/ProfileScreen";
+import LoginScreen from "./src/screens/auth/LoginScreen";
+import SignupScreen from "./src/screens/auth/SignupScreen";
+import HomeScreen from "./src/screens/dashboard/HomeScreen";
+import CustomTabBar from "./components/CustomTabBar.tsx";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -64,7 +71,7 @@ function MainTabs() {
       {/* 랭킹 화면 */}
       <Tab.Screen
         name="랭킹"
-        component={Ranking}
+        component={RankingScreen}
         options={{
           headerLeft: () => <BackButton />,
         }}
