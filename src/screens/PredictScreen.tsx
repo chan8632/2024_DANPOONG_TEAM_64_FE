@@ -6,9 +6,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Down from "./assets/예상하기/내려간다.svg";
-import Up from "./assets/예상하기/올라간다.svg";
-import CustomLineChart from "./CustomLineChart";
+import Down from "../../../assets/예상하기/내려간다.svg";
+import Up from "../../../assets/예상하기/올라간다.svg";
 import Amazon from "../../../stock/Amazon.json";
 import Apple from "../../../stock/Apple.json";
 import Google from "../../../stock/Google.json";
@@ -17,7 +16,7 @@ import Microsoft from "../../../stock/Microsoft.json";
 import Nvidia from "../../../stock/Nvidia.json";
 import { useNavigation } from "@react-navigation/native";
 import { SvgProps } from "react-native-svg";
-
+import CustomLineChart from "../../components/CustomLineChart";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 type Stock = {
   ticker: string;
