@@ -2,14 +2,14 @@ import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { SvgProps } from "react-native-svg";
-import HomeIconOff from "./assets/menuBar/HomeOff.svg";
-import HomeIconOn from "./assets/menuBar/HomeOn.svg";
-import ProfileIconOff from "./assets/menuBar/profileOff.svg";
-import ProfileIconOn from "./assets/menuBar/profileOn.svg";
-import RankingIconOff from "./assets/menuBar/rankingOff.svg";
-import RankingIconOn from "./assets/menuBar/rankingOn.svg";
-import StocksIconOff from "./assets/menuBar/stocksOff.svg";
-import StocksIconOn from "./assets/menuBar/stocksOn.svg";
+import HomeIconOff from "../../assets/menuBar/HomeOff.svg";
+import HomeIconOn from "../../assets/menuBar/HomeOn.svg";
+import ProfileIconOff from "../../assets/menuBar/profileOff.svg";
+import ProfileIconOn from "../../assets/menuBar/profileOn.svg";
+import RankingIconOff from "../../assets/menuBar/rankingOff.svg";
+import RankingIconOn from "../../assets/menuBar/rankingOn.svg";
+import StocksIconOff from "../../assets/menuBar/stocksOff.svg";
+import StocksIconOn from "../../assets/menuBar/stocksOn.svg";
 
 const CustomTabBar: React.FC<BottomTabBarProps> = ({
   state,
@@ -43,7 +43,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({
           }
         };
         // 탭 라벨에 맞는 아이콘 설정 (예시)
-        let IconComponent: React.FC<SvgProps> | undefined;
+        let IconComponent;
         if (label === "Home") {
           IconComponent = isFocused ? HomeIconOn : HomeIconOff;
         } else if (label === "랭킹") {

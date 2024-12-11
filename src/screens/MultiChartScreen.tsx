@@ -7,12 +7,12 @@ import Google from "../../stock/Google.json";
 import Meta from "../../stock/Meta.json";
 import Microsoft from "../../stock/Microsoft.json";
 import Nvidia from "../../stock/Nvidia.json";
-import AmazonLogo from "./assets/Logo=Amazon.svg";
-import AppleLogo from "./assets/Logo=Apple.svg";
-import GoogleLogo from "./assets/Logo=Google.svg";
-import MetaLogo from "./assets/Logo=Meta.svg";
-import MsLogo from "./assets/Logo=Microsoft.svg";
-import NvidiaLogo from "./assets/Logo=Nvidia.svg";
+import AmazonLogo from "../../assets/LogoAmazon.svg";
+import AppleLogo from "../../assets/Logo=Apple.svg";
+import GoogleLogo from "../../assets/Logo=Google.svg";
+import MetaLogo from "../../assets/Logo=Meta.svg";
+import MsLogo from "../../assets/Logo=Microsoft.svg";
+import NvidiaLogo from "../../assets/Logo=Nvidia.svg";
 import { SvgProps } from "react-native-svg";
 import CustomLineChart from "../components/CustomLineChart";
 

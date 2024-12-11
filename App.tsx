@@ -16,6 +16,7 @@ import { TouchableOpacity, Text } from "react-native";
 import Profile from "./src/screens/Profile";
 import NewsScreen from "./src/screens/dashboard/NewsScreen";
 import CustomTabBar from "./src/components/CustomTabBar";
+import BackLogo from "./assets/Back.svg";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -27,7 +28,7 @@ function BackButton() {
       onPress={() => navigation.goBack()}
       style={{ paddingLeft: 10 }}
     >
-      <Text style={{ color: "#0063FC" }}>뒤로가기</Text>
+      <BackLogo />
     </TouchableOpacity>
   );
 }
@@ -53,12 +54,27 @@ function MainTabs() {
                 headerShown: false, // 헤더를 숨김
               }}
             />
-            <Stack.Screen name="결과보기" component={ResultScreen} />
+            <Stack.Screen
+              name="결과보기"
+              component={ResultScreen}
+              options={{
+                headerLeft: () => <BackButton />,
+              }}
+            />
             <Stack.Screen
               name="오늘은 올라갈까 내려갈까?"
               component={PredictScreen}
+              options={{
+                headerLeft: () => <BackButton />,
+              }}
             />
-            <Stack.Screen name="뉴스" component={NewsScreen} />
+            <Stack.Screen
+              name="뉴스"
+              component={NewsScreen}
+              options={{
+                headerLeft: () => <BackButton />,
+              }}
+            />
           </Stack.Navigator>
         )}
       </Tab.Screen>
@@ -71,9 +87,21 @@ function MainTabs() {
         }}
       />
       {/* 주식차트 화면 */}
-      <Tab.Screen name="주식차트" component={MultiChartScreen} />
+      <Tab.Screen
+        name="주식차트"
+        component={MultiChartScreen}
+        options={{
+          headerLeft: () => <BackButton />,
+        }}
+      />
       {/* 프로필 화면 */}
-      <Tab.Screen name="프로필" component={Profile} />
+      <Tab.Screen
+        name="프로필"
+        component={Profile}
+        options={{
+          headerLeft: () => <BackButton />,
+        }}
+      />
     </Tab.Navigator>
   );
 }

@@ -3,21 +3,21 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux"; // Redux에서 상태를 가져오기 위해 추가
 
-import AppleOn from "./assets/Stamp/appleOn.svg";
-import GoogleOn from "./assets/Stamp/googleOn.svg";
-import NvidiaOn from "./assets/Stamp/nvidiaOn.svg";
-import AmazonOn from "./assets/Stamp/amazonOn.svg";
-import MicrosoftOn from "./assets/Stamp/msOn.svg";
-import MetaOn from "./assets/Stamp/metaOn.svg";
+import AppleOn from "../../../assets/Stamp/appleOn.svg";
+import GoogleOn from "../../../assets/Stamp/googleOn.svg";
+import NvidiaOn from "../../../assets/Stamp/nvidiaOn.svg";
+import AmazonOn from "../../../assets/Stamp/amazonOn.svg";
+import MicrosoftOn from "../../../assets/Stamp/msOn.svg";
+import MetaOn from "../../../assets/Stamp/metaOn.svg";
 
-import AppleOff from "./assets/Stamp/appleOff.svg";
-import GoogleOff from "./assets/Stamp/googleOff.svg";
-import NvidiaOff from "./assets/Stamp/nvidiaOff.svg";
-import AmazonOff from "./assets/Stamp/amazonOff.svg";
-import MicrosoftOff from "./assets/Stamp/msOff.svg";
-import MetaOff from "./assets/Stamp/metaOff.svg";
+import AppleOff from "../../../assets/Stamp/appleOff.svg";
+import GoogleOff from "../../../assets/Stamp/googleOff.svg";
+import NvidiaOff from "../../../assets/Stamp/nvidiaOff.svg";
+import AmazonOff from "../../../assets/Stamp/amazonOff.svg";
+import MicrosoftOff from "../../../assets/Stamp/msOff.svg";
+import MetaOff from "../../../assets/Stamp/metaOff.svg";
 
-import Nullsvg from "./assets/Stamp/null.svg";
+import Nullsvg from "../../../assets/Stamp/null.svg";
 import { RootState } from "../../store";
 
 const ResultScreen = () => {

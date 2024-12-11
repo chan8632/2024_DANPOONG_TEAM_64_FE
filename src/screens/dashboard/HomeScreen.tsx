@@ -8,13 +8,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import AmazonLogo from "./assets/Logo=Amazon.svg";
-import AppleLogo from "./assets/Logo=Apple.svg";
-import GoogleLogo from "./assets/Logo=Google.svg";
-import MetaLogo from "./assets/Logo=Meta.svg";
-import MsLogo from "./assets/Logo=Microsoft.svg";
-import NvidiaLogo from "./assets/Logo=Nvidia.svg";
-import MainLogo from "./assets/홈스크린/주식 한입 작은버전.svg";
+import AmazonLogo from "../../../assets/LogoAmazon.svg";
+import AppleLogo from "../../../assets/Logo=Apple.svg";
+import GoogleLogo from "../../../assets/Logo=Google.svg";
+import MetaLogo from "../../../assets/Logo=Meta.svg";
+import MsLogo from "../../../assets/Logo=Microsoft.svg";
+import NvidiaLogo from "../../../assets/Logo=Nvidia.svg";
+import MainLogo from "../../../assets/홈스크린/주식 한입 작은버전.svg";
 import { useSelector } from "react-redux";
 import duration from "dayjs/plugin/duration"; // 플러그인 가져오기
 

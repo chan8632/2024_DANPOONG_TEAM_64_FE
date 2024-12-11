@@ -6,8 +6,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Down from "./assets/예상하기/내려간다.svg";
-import Up from "./assets/예상하기/올라간다.svg";
+import Down from "../../../assets/예상하기/내려간다.svg";
+import Up from "../../../assets/예상하기/올라간다.svg";
 import Amazon from "../../../stock/Amazon.json";
 import Apple from "../../../stock/Apple.json";
 import Google from "../../../stock/Google.json";
@@ -79,11 +79,11 @@ const PredictScreen = ({ route, navigation }) => {
       </TouchableOpacity>
       <View style={styles.actionButtons}>
         <TouchableOpacity style={styles.button}>
-          <Up />
+          <Up width={20} height={20} />
           <Text style={styles.buttonText}>올라간다</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          <Down />
+          <Down width={20} height={20} />
           <Text style={styles.buttonText}>내려간다</Text>
         </TouchableOpacity>
       </View>
