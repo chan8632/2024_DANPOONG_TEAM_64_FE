@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import AmazonLogo from "../../../assets/LogoAmazon.svg";
+import AmazonLogo from "../../../assets/Logo=Amazon.svg";
 import AppleLogo from "../../../assets/Logo=Apple.svg";
 import GoogleLogo from "../../../assets/Logo=Google.svg";
 import MetaLogo from "../../../assets/Logo=Meta.svg";

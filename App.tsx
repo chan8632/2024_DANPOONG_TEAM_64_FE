@@ -13,15 +13,15 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TouchableOpacity, Text } from "react-native";
 
 import ResultScreen from "./src/screens/results/ResultScreen";
-import PredictScreen from "./src/screens/PredictScreen";
+import PredictScreen from "./src/screens/dashboard/PredictScreen";
 import NewsScreen from "./src/screens/dashboard/NewsScreen";
 import RankingScreen from "./src/screens/results/RankingScreen";
-import MultiChartScreen from "./src/screens/dashboard/MultiChartScreen";
+import MultiChartScreen from "./src/screens/MultiChartScreen";
 import Profile from "./src/screens/ProfileScreen";
 import LoginScreen from "./src/screens/auth/LoginScreen";
 import SignupScreen from "./src/screens/auth/SignupScreen";
 import HomeScreen from "./src/screens/dashboard/HomeScreen";
-import CustomTabBar from "./components/CustomTabBar.tsx";
+import CustomTabBar from "./src/components/CustomTabBar.tsx"
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
