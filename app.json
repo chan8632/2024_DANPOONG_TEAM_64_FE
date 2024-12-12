@@ -4,7 +4,7 @@
     "slug": "daily-stock-prediction",
     "description": "매일 특정 종목이 오를지 내릴지 예측하는 게임",
     "keywords": ["stock", "prediction", "finance", "데일리 주가"],
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -17,7 +17,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.yeonchan.dailyStockPrediction",
-      "buildNumber": "1.0.0",
+      "buildNumber": "1.1.0",
       "infoPlist": {
         "NSCameraUsageDescription": "이 앱은 사용자 프로필 사진 업로드에 카메라를 사용할 수 있습니다.",
         "NSUserTrackingUsageDescription": "사용자 맞춤형 광고 제공을 위해 트래킹 권한이 필요합니다."
@@ -28,9 +28,9 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.yourname.dailyStockPrediction",
-      "versionCode": 1,
-      "permissions": ["CAMERA", "INTERNET", "CAMERA", "INTERNET"]
+      "package": "com.yeonchan.dailyStockPrediction",
+      "versionCode": 2,
+      "permissions": ["CAMERA", "INTERNET"]
     },
     "web": {
       "favicon": "./assets/favicon.png",
