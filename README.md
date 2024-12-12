@@ -38,6 +38,32 @@
 
 ### 🚀 설치 및 실행
 
+### expo go 앱으로 실행만 원하는 경우
+
+expo go 앱 설치 후 ,
+
+
+![expo go qr](./assets/qrcode.png)
+
+
+위 qr를 스캔하면 됨.
+
+스캔이 안된다면 아래 링크 접속 후,
+
+[서버없이 실행만 시키고 싶은 경우](https://expo.dev/preview/update?message=%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC%20%EC%88%98%EC%A0%95%20%EB%B0%8F%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EC%88%98%EC%A0%95&updateRuntimeVersion=1.0.0&createdAt=2024-12-11T14%3A28%3A38.064Z&slug=exp&projectId=7c0d2a15-93d6-48ea-b73a-11e446ea908a&group=15ee6386-7812-4975-b551-5364d4100285)  
+
+위 링크 클릭 후 들어가지는 페이지에서 생성된 qr 코드를 스캔하면 됨
+
+---
+
+#### 안드로이드 apk 설치(expo 앱 설치 불필요)
+
+1. [원드라이브 링크](https://1drv.ms/u/c/e01ee02180d78f95/Ec62J9FPSeVBmSin8ovNt1oBMdq74DNESlnx0L5ukqV8_Q?e=gtBXg6)
+   <= 링크로 들어가서 apk 설치
+2. 설치 시 외부 어플리케이션 설치 허용
+
+---
+
 #### \* expo 앱 설치 필요
 
 ##### 개발자 모드(서버 실행 후 expo로 실행가능)
@@ -61,31 +87,13 @@ npx expo start
 
 위와 같은 이미지가 뜨게 되면 키보드에서 's' 키를 누르면 아래의 이미지처럼 expo go 버전으로 전환됨.
 ![expo go 모드로 전환된 서버](./assets/expogoserver.png)
+
 그 이후 핸드폰 와이파이와 서버를 실행시킨 노트북 혹은 pc의 와이파이를 동일하게 설정한 뒤
 카메라로 qr를 찍으면 아래와 같은 이미지가 브라우저에서 나옴.
 ![qr 스캔이후 브라우저에서 나오는 모습](./assets/qrpictureafter.jpg)
 거기서 expo go 라는 버튼을 클릭하면 실행됨.
 
----
 
-expo go 앱으로 실행만 원하는 경우
-
-expo go 앱 설치 후 ,
-[expo go qr](./assets/qrcode.png)
-위 qr를 스캔하면 됨.
-
-스캔이 안된다면 아래 링크 접속 후,
-
-[서버없이 실행만 시키고 싶은 경우](https://expo.dev/preview/update?message=%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC%20%EC%88%98%EC%A0%95%20%EB%B0%8F%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EC%88%98%EC%A0%95&updateRuntimeVersion=1.0.0&createdAt=2024-12-11T14%3A28%3A38.064Z&slug=exp&projectId=7c0d2a15-93d6-48ea-b73a-11e446ea908a&group=15ee6386-7812-4975-b551-5364d4100285)  
-위 링크 클릭 후 들어가지는 페이지에서 생성된 qr 코드를 스캔하면 됨
-
----
-
-#### 안드로이드 apk 설치(expo 앱 설치 불필요)
-
-1. https://1drv.ms/u/c/e01ee02180d78f95/Ec62J9FPSeVBmSin8ovNt1oBMdq74DNESlnx0L5ukqV8_Q?e=gtBXg6
-   위 링크로 들어가서 apk 설치
-2. 설치 시 외부 어플리케이션 설치 허용
 
 ### 📂 디렉토리 구조
 
